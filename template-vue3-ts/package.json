@@ -1,0 +1,24 @@
+{
+  "name": "vite-vue-typescript-starter",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.12",
+    "@laruiss/vue-dsfr": "1.0.0-beta.36"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^5.8.1",
+    "eslint-config-standard-with-typescript": "^21.0.1",
+    "typescript": "^4.5.4",
+    "vite": "^2.7.10",
+    "vite-plugin-pwa": "^0.11.12",
+    "vue-tsc": "^0.29.8"
+  }
+}
