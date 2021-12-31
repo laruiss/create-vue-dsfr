@@ -1,8 +1,16 @@
 {
   "name": "create-vue-dsfr",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
+  "files": [
+    "index.js",
+    "template-*"
+  ],
   "main": "index.js",
+  "bin": {
+    "create-vue-dsfr": "index.js",
+    "cvd": "index.js"
+  },
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=7.0.0"
