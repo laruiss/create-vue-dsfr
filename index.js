@@ -11,10 +11,8 @@ const prompts = require('prompts')
 const {
   yellow,
   green,
-  cyan,
   blue,
-  magenta,
-  lightRed,
+  lightGreen,
   red
 } = require('kolorist')
 
@@ -23,7 +21,7 @@ const cwd = process.cwd()
 const FRAMEWORKS = [
   {
     name: 'Vue 3',
-    color: green,
+    color: lightGreen,
     variants: [
       {
         name: 'vue3',
@@ -32,6 +30,22 @@ const FRAMEWORKS = [
       },
       {
         name: 'vue3-ts',
+        display: 'TypeScript',
+        color: blue
+      }
+    ]
+  },
+  {
+    name: 'Nuxt 3',
+    color: green,
+    variants: [
+      {
+        name: 'nuxt3',
+        display: 'JavaScript',
+        color: yellow
+      },
+      {
+        name: 'nuxt3-ts',
         display: 'TypeScript',
         color: blue
       }
