@@ -11,4 +11,5 @@ VIcon.add(
   RiCloseLine,
   RiFlagLine,
   RiHome2Line,
+  RiRefreshLine,
 )
