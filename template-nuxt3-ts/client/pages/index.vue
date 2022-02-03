@@ -1,7 +1,7 @@
 <script lang="ts">
-export default {
+definePageMeta({
   layout: 'basic',
-}
+})
 </script>
 
 <template>

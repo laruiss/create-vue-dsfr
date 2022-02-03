@@ -203,7 +203,7 @@ async function init() {
       console.log('  yarn dev')
       break
     default:
-      console.log(`  ${pkgManager} install`)
+      console.log(`  ${pkgManager} install --legacy-peer-deps`)
       console.log(`  ${pkgManager} run dev`)
       break
   }

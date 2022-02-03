@@ -1,6 +1,7 @@
 module.exports = {
   root: true,
   globals: {
+    definePageMeta: 'readonly',
     defineProps: 'readonly',
     defineEmits: 'readonly',
     defineExpose: 'readonly',
