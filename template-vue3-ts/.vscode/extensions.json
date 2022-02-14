@@ -16,6 +16,7 @@
 
     // Vue.js
     "johnsoncodehk.volar",
+    "johnsoncodehk.vscode-typescript-vue-plugin",
 
     // Vitejs
     "antfu.vite",

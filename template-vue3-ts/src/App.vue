@@ -1,3 +1,27 @@
+<script setup>
+import { ref } from 'vue'
+
+import ReloadPrompt from '@/components/ReloadPrompt.vue'
+
+const serviceTitle = 'Service'
+const serviceDescription = 'Description du service'
+const logoText = ['Ministère', 'de l’intérieur']
+
+const quickLinks = [
+  {
+    label: 'Home',
+    path: '/',
+    icon: 'ri-home-2-line',
+  },
+  {
+    label: 'À propos',
+    path: '/a-propos',
+    icon: 'ri-flag-line',
+  },
+]
+const searchQuery = ref('')
+</script>
+
 <template>
   <DsfrHeader
     v-model="searchQuery"
@@ -12,36 +36,3 @@
   </div>
   <ReloadPrompt />
 </template>
-
-<script>
-import ReloadPrompt from '@/components/ReloadPrompt.vue'
-
-export default {
-  name: 'App',
-
-  components: {
-    ReloadPrompt,
-  },
-
-  data () {
-    return {
-      serviceTitle: 'Service',
-      serviceDescription: 'Description du service',
-      logoText: ['Ministère', 'de l’intérieur'],
-      quickLinks: [
-        {
-          label: 'Home',
-          path: '/',
-          icon: 'ri-home-2-line',
-        },
-        {
-          label: 'À propos',
-          path: '/a-propos',
-          icon: 'ri-flag-line',
-        },
-      ],
-      searchQuery: '',
-    }
-  },
-}
-</script>

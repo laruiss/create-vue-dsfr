@@ -4,11 +4,8 @@ module.exports = {
   plugins: [
     '@typescript-eslint',
   ],
-  globals: {
-    defineProps: 'readonly',
-    defineEmits: 'readonly',
-    defineExpose: 'readonly',
-    withDefaults: 'readonly',
+  env: {
+    "vue/setup-compiler-macros": true
   },
   extends: [
     'plugin:@typescript-eslint/recommended',
@@ -27,6 +24,14 @@ module.exports = {
       env: {
         jest: true,
       },
+    },
+    {
+      "files": [
+        "cypress/integration/**.spec.{js,ts,jsx,tsx}"
+      ],
+      "extends": [
+        "plugin:cypress/recommended"
+      ],
     },
   ],
 }

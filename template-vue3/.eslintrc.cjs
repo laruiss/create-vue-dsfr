@@ -1,14 +1,12 @@
 module.exports = {
   root: true,
-  globals: {
-    defineProps: 'readonly',
-    defineEmits: 'readonly',
-    defineExpose: 'readonly',
-    withDefaults: 'readonly',
+  env: {
+    "vue/setup-compiler-macros": true
   },
   extends: [
     'plugin:vue/vue3-recommended',
     'standard',
+    "@vue/eslint-config-prettier",
   ],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -22,6 +20,14 @@ module.exports = {
       env: {
         jest: true,
       },
+    },
+    {
+      "files": [
+        "cypress/integration/**.spec.{js,ts,jsx,tsx}"
+      ],
+      "extends": [
+        "plugin:cypress/recommended"
+      ],
     },
   ],
 }
