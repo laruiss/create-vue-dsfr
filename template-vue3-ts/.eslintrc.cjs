@@ -1,3 +1,6 @@
+/* eslint-env node */
+require("@rushstack/eslint-patch/modern-module-resolution");
+
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
@@ -10,6 +13,7 @@ module.exports = {
   extends: [
     'plugin:@typescript-eslint/recommended',
     'plugin:vue/vue3-recommended',
+    '@vue/eslint-config-typescript/recommended',
     'eslint-config-standard-with-typescript',
   ],
   rules: {
@@ -19,12 +23,6 @@ module.exports = {
     'comma-dangle': [2, 'always-multiline'],
   },
   overrides: [
-    {
-      files: ['**/src/**/*.spec.{j,t}s?(x)'],
-      env: {
-        jest: true,
-      },
-    },
     {
       "files": [
         "cypress/integration/**.spec.{js,ts,jsx,tsx}"
