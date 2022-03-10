@@ -1,0 +1,142 @@
+{
+  "template": {
+    "scope": "vue",
+    "prefix": "template",
+    "body": [
+        "<template>",
+        "  $1",
+        "</template>"
+    ],
+    "description": "Create <template> block"
+  },
+  "script": {
+    "scope": "vue",
+    "prefix": "script",
+    "body": [
+        "<script lang=\"ts\">",
+        "import { defineComponent } from 'vue';",
+        "",
+        "export default defineComponent({",
+        "  $2",
+        "});",
+        "</script>"
+    ],
+    "description": "Create <script> block"
+  },
+  "script setup": {
+    "scope": "vue",
+    "prefix": "script setup",
+    "body": [
+        "<script lang=\"ts\" setup>",
+        "defineProps<{ $1 }>();",
+        "</script>"
+    ],
+    "description": "Create <script setup> + <script> blocks"
+  },
+  "style": {
+    "scope": "vue",
+    "prefix": "style",
+    "body": [
+        "<style scoped>",
+        "$1",
+        "</style>"
+    ],
+    "description": "Create <style> block"
+  },
+  "v-for": {
+    "scope": "html",
+    "prefix": "v-for",
+    "body": [
+        "<template v-for=\"$1 in $2\">",
+        "  $3",
+        "</template>"
+    ],
+    "description": "Create html tag with v-for"
+  },
+  "v-if": {
+    "scope": "html",
+    "prefix": "v-if",
+    "body": [
+        "<template v-if=\"$1\">",
+        "  $2",
+        "</template>"
+    ],
+    "description": "Create html tag with v-if"
+  },
+  "v-else-if": {
+    "scope": "html",
+    "prefix": "v-else-if",
+    "body": [
+        "<template v-else-if=\"$1\">",
+        "  $2",
+        "</template>"
+    ],
+    "description": "Create html tag with v-else-if"
+  },
+  "v-else": {
+    "scope": "html",
+    "prefix": "v-else",
+    "body": [
+        "<template v-else>",
+        "  $2",
+        "</template>"
+    ],
+    "description": "Create html tag with v-else"
+  },
+  "dsfr-header": {
+    "scope": "html",
+    "prefix": "dsfr-header",
+    "body": [
+        "<DsfrHeader",
+        "  :service-title=\"${1:serviceTitle}\"",
+        "  :service-description=\"${2:serviceDescription}\"",
+        "  :logo-text=\"{3:logoText}\"",
+        "  :quick-links=\"{4:quickLinks}\"",
+        "  ${5:show-search}",
+        "/>",
+    ],
+    "description": "Create DsfrHeader boilerplate"
+  },
+  "dsfr-alert": {
+    "scope": "html",
+    "prefix": "dsfr-alert",
+    "body": [
+        "<DsfrAlert",
+        "  :closed=\"${1:!openAlert}\"",
+        "  :type=\"${2:alertType}\"",
+        "  :title=\"{3:alertTitle}\"",
+        "  :description=\"{4:alertDescription}\"",
+        "  ${5:closeable}",
+        "  @close=\"${6:closeAlert()}\"",
+        "/>",
+    ],
+    "description": "Create DsfrAlert boilerplate"
+  },
+  "dsfr-input": {
+    "scope": "html",
+    "prefix": "dsfr-input",
+    "body": [
+        "<DsfrInput",
+        "  type=\"${1:inputType}\"",
+        "  :label=\"{2:inputLabel}\"",
+        "  v-model=\"{3:inputValue}\"",
+        "  ${4:label-visible}",
+        "  :placeholder=\"${5:inputPlaceholder}\"",
+        "/>",
+    ],
+    "description": "Create DsfrAlert boilerplate"
+  },
+  "dsfr-button": {
+    "scope": "html",
+    "prefix": "dsfr-button",
+    "body": [
+        "<DsfrButton",
+        "  type=\"${1:buttonType}\"",
+        "  :label=\"{2:buttonLabel}\"",
+        "  ${3:secondary}",
+        "  @click=\"${4:onClick()}\"",
+        "/>",
+    ],
+    "description": "Create DsfrAlert boilerplate"
+  },
+}

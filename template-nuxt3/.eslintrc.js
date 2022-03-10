@@ -1,11 +1,7 @@
 module.exports = {
   root: true,
-  globals: {
-    definePageMeta: 'readonly',
-    defineProps: 'readonly',
-    defineEmits: 'readonly',
-    defineExpose: 'readonly',
-    withDefaults: 'readonly',
+  env: {
+    "vue/setup-compiler-macros": true
   },
   extends: [
     'plugin:vue/vue3-recommended',
@@ -23,6 +19,14 @@ module.exports = {
       env: {
         jest: true,
       },
+    },
+    {
+      "files": [
+        "cypress/integration/**.spec.{js,ts,jsx,tsx}"
+      ],
+      "extends": [
+        "plugin:cypress/recommended"
+      ]
     },
   ],
 }
