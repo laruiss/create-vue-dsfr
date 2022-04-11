@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { fileURLToPath, URL } from 'url'
 
 import { defineConfig } from 'vite'
@@ -15,7 +16,17 @@ export default defineConfig({
   base: process.env.BASE_URL || '/',
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  }
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+    dedupe: ['vue', 'oh-vue-icons'],
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    testTimeout: 2000,
+    watch: false,
+    setupFiles: [
+      './vitest-setup.js',
+    ],
+  },
 })

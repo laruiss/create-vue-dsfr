@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import { useRegisterSW } from 'virtual:pwa-register/vue'
 
 import ReloadPrompt from '@/components/ReloadPrompt.vue'
 
@@ -11,15 +12,28 @@ const quickLinks = [
   {
     label: 'Home',
     path: '/',
-    icon: 'ri-home-2-line',
+    class: 'fr-fi-arrow-up-line  fr-fi-icon--right',
+    icon: '',
+    iconAttrs: { scale: 2.5 },
   },
   {
     label: 'À propos',
     path: '/a-propos',
-    icon: 'ri-flag-line',
+    class: 'fr-icon-success-fill',
   },
 ]
 const searchQuery = ref('')
+
+const {
+  offlineReady,
+  needRefresh,
+  updateServiceWorker,
+} = useRegisterSW()
+
+const close = async () => {
+  offlineReady.value = false
+  needRefresh.value = false
+}
 </script>
 
 <template>
@@ -34,5 +48,10 @@ const searchQuery = ref('')
   <div class="fr-container">
     <router-view />
   </div>
-  <ReloadPrompt />
+  <ReloadPrompt
+    :offline-ready="offlineReady"
+    :need-refresh="needRefresh"
+    @close="close()"
+    @update-service-worker="updateServiceWorker()"
+  />
 </template>

@@ -16,6 +16,6 @@
     "nuxt3": "latest"
   },
   "dependencies": {
-    "@laruiss/vue-dsfr": "^1.0.0-beta.37"
+    "@laruiss/vue-dsfr": "^1.0.0-beta.42"
   }
 }

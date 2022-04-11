@@ -1,17 +1,10 @@
+<script lang="ts" setup>
+defineProps({
+  offlineReady: Boolean,
+  needRefresh: Boolean,
+})
 
-<script setup lang="ts">
-import { useRegisterSW } from 'virtual:pwa-register/vue'
-
-const {
-  offlineReady,
-  needRefresh,
-  updateServiceWorker,
-} = useRegisterSW()
-
-const close = async () => {
-  offlineReady.value = false
-  needRefresh.value = false
-}
+defineEmits(['close', 'updateServiceWorker'])
 </script>
 
 <template>
@@ -35,7 +28,7 @@ const close = async () => {
         class="button"
         icon="ri-refresh-line"
         icon-right
-        @click="updateServiceWorker()"
+        @click="$emit('updateServiceWorker')"
       >
         Recharger
       </DsfrButton>
@@ -44,7 +37,7 @@ const close = async () => {
         icon="ri-close-line"
         icon-right
         secondary
-        @click="close()"
+        @click="$emit('close')"
       >
         Fermer
       </DsfrButton>

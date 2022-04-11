@@ -1,35 +1,39 @@
 /* eslint-env node */
-require("@rushstack/eslint-patch/modern-module-resolution");
+require('@rushstack/eslint-patch/modern-module-resolution')
 
 module.exports = {
   root: true,
-  parser: '@typescript-eslint/parser',
-  plugins: [
-    '@typescript-eslint',
-  ],
-  env: {
-    "vue/setup-compiler-macros": true
-  },
   extends: [
-    'plugin:@typescript-eslint/recommended',
     'plugin:vue/vue3-recommended',
     '@vue/eslint-config-typescript/recommended',
-    'eslint-config-standard-with-typescript',
+    'standard',
   ],
+  env: {
+    'vue/setup-compiler-macros': true,
+  },
+
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'jsx-quotes': [2, 'prefer-double'],
     'comma-dangle': [2, 'always-multiline'],
   },
   overrides: [
     {
-      "files": [
-        "cypress/integration/**.spec.{js,ts,jsx,tsx}"
+      files: [
+        'cypress/support/*.{js,ts,jsx,tsx}',
+        'cypress/integration/*.{spec,e2e}.{js,ts,jsx,tsx}',
+        'src/**/*.ct.{js,ts,jsx,tsx}',
       ],
-      "extends": [
-        "plugin:cypress/recommended"
+      extends: [
+        'plugin:cypress/recommended',
       ],
+    },
+    {
+      files: [
+        'src/**/*.{spec,test}.{js,ts,jsx,tsx}',
+      ],
+      env: {
+        jest: true,
+      },
     },
   ],
 }

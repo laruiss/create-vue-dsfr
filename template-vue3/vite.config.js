@@ -10,15 +10,22 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
-    VitePWA({
-      mode: 'development',
-      base: '/',
-    }),
+    VitePWA({}),
   ],
   base: process.env.BASE_URL || '/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
+    dedupe: ['vue', 'oh-vue-icons'],
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    testTimeout: 2000,
+    watch: false,
+    setupFiles: [
+      './vitest-setup.js',
+    ],
   },
 })

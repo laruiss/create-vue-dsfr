@@ -1,5 +1,5 @@
-import '@laruiss/vue-dsfr/dist/vue-dsfr-fonts.css'
-import '@laruiss/vue-dsfr/dist/vue-dsfr.css'
+import '@laruiss/vue-dsfr/fonts'
+import '@laruiss/vue-dsfr/styles'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

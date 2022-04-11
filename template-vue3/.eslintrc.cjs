@@ -2,10 +2,11 @@ module.exports = {
   root: true,
   extends: [
     'plugin:vue/vue3-recommended',
+    'eslint:recommended',
     'standard',
   ],
   env: {
-    "vue/setup-compiler-macros": true
+    'vue/setup-compiler-macros': true,
   },
   rules: {
     'jsx-quotes': [2, 'prefer-double'],
@@ -13,12 +14,22 @@ module.exports = {
   },
   overrides: [
     {
-      "files": [
-        "cypress/integration/**.spec.{js,ts,jsx,tsx}"
+      files: [
+        'cypress/support/*.{js,ts,jsx,tsx}',
+        'cypress/integration/*.{spec,e2e}.{js,ts,jsx,tsx}',
+        'src/**/*.ct.{js,ts,jsx,tsx}',
       ],
-      "extends": [
-        "plugin:cypress/recommended"
+      extends: [
+        'plugin:cypress/recommended',
       ],
+    },
+    {
+      files: [
+        'src/**/*.{spec,test}.{js,ts,jsx,tsx}',
+      ],
+      env: {
+        jest: true,
+      },
     },
   ],
 }

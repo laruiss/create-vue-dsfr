@@ -12,5 +12,10 @@ export default defineNuxtConfig({
       'oh-vue-icons/icons/ri/index',
     ],
   },
+  ignore: [
+    '**/*.test.*',
+    '**/*.spec.*',
+    '**/*.cy.*',
+  ],
   srcDir: 'client/',
 })

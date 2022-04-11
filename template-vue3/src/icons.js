@@ -1,4 +1,4 @@
-import { VIcon } from '@laruiss/vue-dsfr'
+import { addIcons } from 'oh-vue-icons'
 
 import {
   RiCloseLine,
@@ -7,7 +7,7 @@ import {
   RiRefreshLine,
 } from 'oh-vue-icons/icons/ri/index.js'
 
-VIcon.add(
+addIcons(
   RiCloseLine,
   RiFlagLine,
   RiHome2Line,
