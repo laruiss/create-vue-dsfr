@@ -11,8 +11,6 @@ module.exports = {
     'standard',
   ],
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'jsx-quotes': [2, 'prefer-double'],
     'comma-dangle': [2, 'always-multiline'],
   },
@@ -21,6 +19,14 @@ module.exports = {
       files: ['**/src/**/*.spec.{j,t}s?(x)'],
       env: {
         jest: true,
+      },
+    },
+    {
+      files: [
+        'client/pages/**/*.vue',
+      ],
+      rules: {
+        'vue/multi-word-component-names': 'off',
       },
     },
   ],

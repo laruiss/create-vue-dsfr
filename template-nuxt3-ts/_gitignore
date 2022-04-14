@@ -1,5 +1,6 @@
-# Created by https://www.toptal.com/developers/gitignore/api/nuxtjs,node,visualstudiocode,macos,windows,linux
-# Edit at https://www.toptal.com/developers/gitignore?templates=nuxtjs,node,visualstudiocode,macos,windows,linux
+
+# Created by https://www.toptal.com/developers/gitignore/api/node,windows,macos,linux,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,windows,macos,linux,visualstudiocode
 
 ### Linux ###
 *~
@@ -225,4 +226,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/nuxtjs,node,visualstudiocode,macos,windows,linux
+# End of https://www.toptal.com/developers/gitignore/api/node,windows,macos,linux,visualstudiocode

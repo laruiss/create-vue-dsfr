@@ -10,12 +10,12 @@ export default defineConfig({
     Vue(),
   ],
   test: {
-    global: true,
+    globals: true,
     // environment: 'happy-dom',
     environment: 'jsdom',
     testTimeout: 2000,
     setupFiles: [
-      './tests/unit/vitest-setup.ts',
+      './vitest-setup.ts',
     ],
   },
   resolve: {

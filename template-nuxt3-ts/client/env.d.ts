@@ -1,7 +1,5 @@
 declare module 'vue' {
   export interface GlobalComponents {
-    RouterLink: typeof import('vue-router').RouterLink;
-    RouterView: typeof import('vue-router').RouterView;
     DsfrAccordion: typeof import ('@laruiss/vue-dsfr').DsfrAccordion;
     DsfrAccordionsGroup: typeof import ('@laruiss/vue-dsfr').DsfrAccordionsGroup;
     DsfrAlert: typeof import ('@laruiss/vue-dsfr').DsfrAlert;

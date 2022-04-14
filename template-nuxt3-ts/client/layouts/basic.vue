@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ name: String }>()
+defineProps<{ name: string }>()
 
 const query = ref('')
 
