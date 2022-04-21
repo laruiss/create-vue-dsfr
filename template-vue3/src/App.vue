@@ -12,14 +12,13 @@ const quickLinks = [
   {
     label: 'Home',
     path: '/',
-    class: 'fr-fi-arrow-up-line  fr-fi-icon--right',
-    icon: '',
-    iconAttrs: { scale: 2.5 },
+    icon: 'ri-home-4-line',
+    iconAttrs: { color: 'var(--red-marianne-425-625)' },
   },
   {
     label: 'À propos',
     path: '/a-propos',
-    class: 'fr-icon-success-fill',
+    class: 'fr-fi-user-line',
   },
 ]
 const searchQuery = ref('')
@@ -47,6 +46,7 @@ const close = async () => {
   />
   <div class="fr-container">
     <router-view />
+    <VIcon name="ri-flag-line" />
   </div>
   <ReloadPrompt
     :offline-ready="offlineReady"

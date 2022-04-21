@@ -1,15 +1,7 @@
-import { addIcons } from 'oh-vue-icons'
-
-import {
+export {
   RiCloseLine,
   RiFlagLine,
   RiHome2Line,
+  RiHome4Line,
   RiRefreshLine,
 } from 'oh-vue-icons/icons/ri/index.js'
-
-addIcons(
-  RiCloseLine,
-  RiFlagLine,
-  RiHome2Line,
-  RiRefreshLine,
-)

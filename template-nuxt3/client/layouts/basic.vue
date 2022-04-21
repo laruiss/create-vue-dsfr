@@ -24,6 +24,10 @@ const quickLinks = [
     icon: 'ri-flag-line',
   },
 ]
+
+const goFetch = () => {
+  console.log('Fetching with query:', query.value)
+}
 </script>
 
 <template>
@@ -34,7 +38,7 @@ const quickLinks = [
     :logo-text="logoText"
     :quick-links="quickLinks"
     show-search
-    @search="goFetch"
+    @search="goFetch()"
   />
   <div class="fr-container">
     <slot />

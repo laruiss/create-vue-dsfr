@@ -6,7 +6,7 @@ et la [documentation de VueDsfr](https://vue-dsfr.netlify.app).
 ## Installation des dépendances
 
 ```bash
-npm install
+npm install --legacy-peer-deps
 ```
 
 ## Lancer nuxt en mode développement
@@ -25,4 +25,4 @@ Génère le code de production de l’application :
 npm run build
 ```
 
-Regarder ensuite la [documentation de Nuxt concernat le déploiement](https://v3.nuxtjs.org/docs/deployment).
+Regarder ensuite la [documentation de Nuxt concernant le déploiement](https://v3.nuxtjs.org/docs/deployment).

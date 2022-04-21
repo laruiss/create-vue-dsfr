@@ -26,7 +26,7 @@ export default defineConfig({
     testTimeout: 2000,
     watch: false,
     setupFiles: [
-      './vitest-setup.js',
+      './vitest-setup.ts',
     ],
   },
 })

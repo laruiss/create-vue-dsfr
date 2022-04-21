@@ -15,5 +15,6 @@ definePageMeta({
     <h1 class="fr-mt-4w">
       Accueil
     </h1>
+    <VIcon name="ri-flag-line" />
   </div>
 </template>

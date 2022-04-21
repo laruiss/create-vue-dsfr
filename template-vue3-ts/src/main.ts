@@ -1,4 +1,3 @@
-import '@laruiss/vue-dsfr/fonts'
 import '@laruiss/vue-dsfr/styles'
 
 import { createApp } from 'vue'
@@ -8,12 +7,12 @@ import VueDsfr from '@laruiss/vue-dsfr'
 
 import App from './App.vue'
 import router from './router/index'
-import './icons.js'
+import * as icons from './icons'
 
 import './main.css'
 
 createApp(App)
   .use(createPinia())
   .use(router)
-  .use(VueDsfr)
+  .use(VueDsfr, { icons: Object.values(icons)})
   .mount('#app')

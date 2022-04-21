@@ -5,12 +5,8 @@
 // as explained in the cypress docs
 // https://docs.cypress.io/api/plugins/preprocessors-api.html#Examples
 
-const { startDevServer } = require('@cypress/vite-dev-server')
-const path = require('path')
-
-const vite = require('vite')
-
-const cache = {}
+import { startDevServer } from '@cypress/vite-dev-server'
+import path from 'path'
 
 module.exports = (on, config) => {
   on('dev-server:start', (options) => {

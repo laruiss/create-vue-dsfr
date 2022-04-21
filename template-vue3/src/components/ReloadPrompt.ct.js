@@ -1,16 +1,15 @@
 import { mount } from '@cypress/vue'
 
-import '@laruiss/vue-dsfr/dist/vue-dsfr-fonts.css'
-import '@laruiss/vue-dsfr/dist/vue-dsfr.css'
+import '@laruiss/vue-dsfr/styles'
 
 import { OhVueIcon, addIcons } from 'oh-vue-icons'
-import { RiRefreshLine, RiCloseLine } from 'oh-vue-icons/icons/ri/index.js'
+import { RiRefreshLine, RiSearchLine, RiCloseLine } from 'oh-vue-icons/icons/ri/index.js'
 
 import { DsfrButton } from '@laruiss/vue-dsfr'
 
 import ReloadPrompt from './ReloadPrompt.vue'
 
-addIcons(RiRefreshLine, RiCloseLine)
+addIcons(RiRefreshLine, RiSearchLine, RiCloseLine)
 
 describe('ReloadPrompt', () => {
   it('should render ReloadPrompt with offline ready button', () => {

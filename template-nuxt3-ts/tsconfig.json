@@ -1,12 +1,4 @@
 {
   // https://v3.nuxtjs.org/concepts/typescript
-  "extends": "./.nuxt/tsconfig.json",
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.vitest.json"
-    }
-  ]
+  "extends": "./.nuxt/tsconfig.json"
 }
