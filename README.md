@@ -5,7 +5,7 @@
 Avec NPM:
 
 ```bash
-$ npm init vue-dsfr@latest
+$ npm init vue-dsfr
 ```
 
 Avec Yarn:
