@@ -1,4 +1,4 @@
-import VueDsfr from '@laruiss/vue-dsfr'
+import VueDsfr from '@gouvminint/vue-dsfr'
 
 import {
   RiCloseLine,

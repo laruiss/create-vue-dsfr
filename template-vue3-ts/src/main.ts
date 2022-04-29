@@ -1,9 +1,9 @@
-import '@laruiss/vue-dsfr/styles'
+import '@gouvminint/vue-dsfr/styles'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
-import VueDsfr from '@laruiss/vue-dsfr'
+import VueDsfr from '@gouvminint/vue-dsfr'
 
 import App from './App.vue'
 import router from './router/index'
