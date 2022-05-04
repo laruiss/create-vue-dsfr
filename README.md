@@ -1,6 +1,6 @@
 # create-vue-dsfr
 
-## Échaffauder un projet avec Vite et VueDsfr
+## Échaffauder un projet avec VueDsfr et Vite ou Nuxt3
 
 Avec NPM:
 
