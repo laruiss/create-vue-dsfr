@@ -1,6 +1,6 @@
 {
   "name": "create-vue-dsfr",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "description": "",
   "files": [
     "index.js",
@@ -9,11 +9,13 @@
   "main": "index.js",
   "bin": {
     "create-vue-dsfr": "index.js",
-    "cvd": "index.js"
+    "cvd": "index.js",
+    "vue-dsfr-update-icons": "update-icons.mjs",
+    "vue-dsfr-icons": "update-icons.mjs"
   },
   "engines": {
     "node": ">=16.0.0",
-    "npm": ">=7.0.0"
+    "npm": ">=8.0.0"
   },
   "scripts": {},
   "repository": {
@@ -28,11 +30,19 @@
   },
   "homepage": "https://github.com/laruiss/create-vue-dsfr#readme",
   "dependencies": {
-    "kolorist": "^1.5.1",
-    "minimist": "^1.2.6",
-    "prompts": "^2.4.2"
+    "adm-zip": "^0.5.10",
+    "archiver": "^5.3.1",
+    "kolorist": "^1.6.0",
+    "minimist": "^1.2.7",
+    "ohmyfetch": "^0.4.21",
+    "prompts": "^2.4.2",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
-    "prettier": "^2.6.2"
+    "@types/node": "^18.11.18",
+    "prettier": "^2.8.1"
+  },
+  "overrides": {
+    "graceful-fs": "^4.2.10"
   }
 }

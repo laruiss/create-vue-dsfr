@@ -18,6 +18,8 @@ const {
 
 const cwd = process.cwd()
 
+const { getLatestDsfrRelease } = require('./fetch-dsfr')
+
 const FRAMEWORKS = [
   {
     name: 'Vue 3',
@@ -141,7 +143,7 @@ async function init() {
       ],
       {
         onCancel: () => {
-          throw new Error(red('✖') + ' Operation cancelled')
+          throw new Error(red('✖') + ' Opération annulée')
         }
       }
     )
@@ -198,6 +200,10 @@ async function init() {
     console.log(`  cd ${path.relative(cwd, root)}`)
   }
   switch (pkgManager) {
+    case 'pnpm':
+      console.log('  pnpm i')
+      console.log('  pnpm dev')
+      break
     case 'yarn':
       console.log('  yarn')
       console.log('  yarn dev')

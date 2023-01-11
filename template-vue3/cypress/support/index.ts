@@ -14,8 +14,8 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-// import './mailhog-commands.js'
-import './commands.js'
+// import './mailhog-commands.ts'
+import './commands.ts'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

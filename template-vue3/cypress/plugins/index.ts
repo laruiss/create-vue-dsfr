@@ -1,31 +1,19 @@
-/* eslint-env node */
-// ***********************************************************
-// This example plugins/index.js can be used to load plugins
-//
-// You can change the location of this file or turn off loading
-// the plugins file with the 'pluginsFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/plugins-guide
-// ***********************************************************
+// https://docs.cypress.io/guides/guides/plugins-guide.html
 
-// This function is called when a project is opened or re-opened (e.g. due to
-// the project's config changing)
+// if you need a custom webpack configuration you can uncomment the following import
+// and then use the `file:preprocessor` event
+// as explained in the cypress docs
+// https://docs.cypress.io/api/plugins/preprocessors-api.html#Examples
 
-/**
- * @type {Cypress.PluginConfig}
- */
-// eslint-disable-next-line no-unused-vars
-
-const { startDevServer } = require('@cypress/vite-dev-server')
-const path = require('path')
+import { startDevServer } from '@cypress/vite-dev-server'
+import path from 'path'
 
 module.exports = (on, config) => {
   on('dev-server:start', (options) => {
     return startDevServer({
       options,
       viteConfig: {
-        configFile: path.resolve(__dirname, '..', '..', 'vite.config.js'),
+        configFile: path.resolve(__dirname, '..', '..', 'vite.config.ts'),
       },
     })
   })
@@ -65,6 +53,6 @@ module.exports = (on, config) => {
     integrationFolder: 'cypress/integration',
     screenshotsFolder: 'cypress/screenshots',
     videosFolder: 'cypress/videos',
-    supportFile: 'cypress/support/index.js',
+    supportFile: 'cypress/support/index.ts',
   })
 }
