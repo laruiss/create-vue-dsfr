@@ -26,7 +26,7 @@ async function getLatestDsfrRelease(targetFolder = './public/icons', owner = 'Go
   const assetPath = path.resolve(dsfrTmpDir, `${assetName}`)
   await downloadFile(asset.browser_download_url, assetPath)
   const statZipFile = await stat(assetPath)
-  extractIcons(assetPath, targetFolder)
+  await extractIcons(assetPath, targetFolder)
   return new Promise((resolve, reject) => {
     console.log(yellow('⧖ Nettoyage en cours...'))
     rimraf(dsfrTmpDir, (err) => {
@@ -70,16 +70,17 @@ async function downloadFile(url, filepath) {
 async function extractIcons (filepath, targetFolder) {
   targetFolder += targetFolder.endsWith('/') ? '' : '/'
   const zip = new AdmZip(filepath)
+  console.log(yellow(`⧖ Extraction des icônes en cours (dans ${lightGray(targetFolder)})...`))
   zip
     .getEntries()
     .map(({entryName}) => entryName)
-    .filter(entryName => entryName.includes('dist/icons/'))
+    .filter(entryName => entryName.includes('dist/icons/') && entryName.endsWith('.svg'))
     .forEach(entryName => {
-      const target = targetFolder + entryName.replace(/.*dist\/icons\/(.*)/, '$1')
+      const target = path.dirname(targetFolder + entryName.replace(/.*dist\/icons\/(.*)/, '$1'))
       try {
-        zip.extractEntryTo(entryName, target, /*maintainEntryPath*/ true, /*overwrite*/ true)
+        zip.extractEntryTo(entryName, target, /*maintainEntryPath*/ false, /*overwrite*/ true)
       } catch (e) {
-        console.log(e.message + ` (${target})`)
+        console.log(`${red('✖')} Erreur dans le dossier ${target}: ` + e.message)
       }
     })
     console.log(green(`✔ Icônes extraites dans ${yellow(targetFolder)}`))

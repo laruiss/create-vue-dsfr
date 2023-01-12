@@ -13,7 +13,9 @@ const {
   green,
   blue,
   lightGreen,
-  red
+  red,
+  gray,
+  lightGray,
 } = require('kolorist')
 
 const cwd = process.cwd()
@@ -195,7 +197,13 @@ async function init() {
   const pkgInfo = pkgFromUserAgent(process.env.npm_config_user_agent)
   const pkgManager = pkgInfo ? pkgInfo.name : 'npm'
 
-  console.log(`\nDone. Now run:\n`)
+  let publicDir = targetDir + '/public/icons'
+  if (template.includes('nuxt')) {
+    publicDir = targetDir + '/client/public/icons'
+  }
+  await getLatestDsfrRelease(publicDir)
+
+  console.log(`\n${lightGreen('Le projet est prêt. Il ne reste qu’à lancer ces commandes :')}\n`)
   if (root !== cwd) {
     console.log(`  cd ${path.relative(cwd, root)}`)
   }
@@ -209,7 +217,7 @@ async function init() {
       console.log('  yarn dev')
       break
     default:
-      console.log(`  ${pkgManager} install --legacy-peer-deps`)
+      console.log(`  ${pkgManager} install`)
       console.log(`  ${pkgManager} run dev`)
       break
   }

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-defineProps<{ name: string }>()
-
 const query = ref('')
 
 const serviceTitle = 'Service'

@@ -1,7 +1,33 @@
-<script lang="ts">
+<script setup lang="ts">
+import { ref } from 'vue'
+
 definePageMeta({
   layout: 'basic',
 })
+
+const currentLanguage = ref('fr')
+const languages = [
+  {
+    codeIso: 'fr',
+    label: 'Français',
+  },
+  {
+    codeIso: 'en',
+    label: 'English',
+  },
+  {
+    codeIso: 'de',
+    label: 'Deutsch',
+  },
+  {
+    codeIso: 'nl',
+    label: 'Dutch',
+  },
+]
+
+function changeLanguage(languageObject: { codeIso: string; label: string; }) {
+  currentLanguage.value = languageObject.codeIso
+}
 </script>
 
 <template>
@@ -16,5 +42,14 @@ definePageMeta({
       Accueil
     </h1>
     <VIcon name="ri-flag-line" />
+    <DsfrLanguageSelector
+      :languages="languages"
+      :current-language="currentLanguage"
+      @select="changeLanguage($event)"
+    />
+    <FdrAutoComplete
+      :modelValue="currentLanguage"
+      :options="languages"
+    />
   </div>
 </template>

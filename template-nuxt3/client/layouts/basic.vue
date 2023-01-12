@@ -1,11 +1,4 @@
 <script setup>
-defineProps({
-  name: { 
-    type: String,
-    default: 'basic'
-  },
-})
-
 const query = ref('')
 
 const serviceTitle = 'Service'

@@ -29,9 +29,32 @@ const {
   updateServiceWorker,
 } = useRegisterSW()
 
-const close = async () => {
+const close = () => {
   offlineReady.value = false
   needRefresh.value = false
+}
+
+const currentLanguage = ref('fr')
+const languages = [
+  {
+    codeIso: 'fr',
+    label: 'Français',
+  },
+  {
+    codeIso: 'en',
+    label: 'English',
+  },
+  {
+    codeIso: 'de',
+    label: 'Deutsch',
+  },
+  {
+    codeIso: 'nl',
+    label: 'Dutch',
+  },
+]
+function changeLanguage (languageObject: { codeIso: string; label: string; }) {
+  currentLanguage.value = languageObject.codeIso
 }
 </script>
 
@@ -47,6 +70,11 @@ const close = async () => {
   <div class="fr-container">
     <router-view />
     <VIcon name="ri-flag-line" />
+    <DsfrLanguageSelector
+      :languages="languages"
+      :current-language="currentLanguage"
+      @select="changeLanguage($event)"
+    />
   </div>
   <ReloadPrompt
     :offline-ready="offlineReady"
