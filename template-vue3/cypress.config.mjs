@@ -6,17 +6,18 @@ export default defineConfig({
       framework: 'vue',
       bundler: 'vite',
       componentFolder: 'src',
-      specPattern: '**/*.{ct,cy}.{js,ts,jsx,tsx}',
       viewportHeight: 500,
       viewportWidth: 1000,
     },
+    specPattern: [
+      'src/**/*.{cy,ct}.{js,jsx,ts,tsx}',
+    ],
   },
 
   e2e: {
     baseUrl: 'http://localhost:5050',
     specPattern: [
-      '**/cypress/e2e/*.{cy,e2e}.{js,ts,jsx,tsx}',
-      '**/src/*.e2e.{js,ts,jsx,tsx}',
+      'cypress/e2e/**/*.{cy,e2e}.{js,jsx,ts,tsx}',
     ],
     setupNodeEvents (on, config) {
       // implement node event listeners here

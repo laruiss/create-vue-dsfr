@@ -1,40 +1,41 @@
 {
-  "name": "vue-dsfr-nuxt-ts-starter",
-  "version": "0.0.0",
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "test": "vitest",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
-    "format": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
-  },
   "dependencies": {
-    "@gouvminint/vue-dsfr": "^1.8.2"
+    "@gouvfr/dsfr": "^1.9.0",
+    "@gouvminint/vue-dsfr": "^3.1.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/user-event": "^14.4.3",
-    "@testing-library/vue": "^6.6.1",
-    "@types/jsdom": "^20.0.1",
-    "@types/node": "^18.11.18",
-    "@typescript-eslint/eslint-plugin": "^5.48.1",
-    "@typescript-eslint/parser": "^5.48.1",
+    "@testing-library/vue": "^7.0.0",
+    "@types/jsdom": "^21.1.0",
+    "@types/node": "^18.15.3",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
     "@vue/eslint-config-typescript": "^11.0.2",
-    "eslint": "^8.31.0",
+    "eslint": "^8.36.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-cypress": "^2.12.1",
-    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-vue": "^9.8.0",
-    "jsdom": "^21.0.0",
+    "eslint-plugin-vue": "^9.9.0",
+    "jsdom": "^21.1.1",
     "npm-run-all": "^4.1.5",
-    "nuxt": "3.0.0",
-    "start-server-and-test": "^1.15.2",
-    "typescript": "~4.9.4",
-    "vitest": "^0.27.0"
-  }
+    "nuxt": "3.3.1",
+    "start-server-and-test": "^2.0.0",
+    "typescript": "~4.9.5",
+    "vitest": "^0.29.2"
+  },
+  "name": "vue-dsfr-nuxt-ts-starter",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "format": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "generate": "nuxt generate",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
+    "preview": "nuxt preview",
+    "test": "vitest"
+  },
+  "version": "0.0.0"
 }
