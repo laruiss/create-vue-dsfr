@@ -4,6 +4,7 @@
     "@gouvminint/vue-dsfr": "^3.1.0"
   },
   "devDependencies": {
+    "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@nuxt/types": "^2.16.0",
     "@nuxt/typescript-build": "^2.1.0",
     "@rushstack/eslint-patch": "^1.2.0",
