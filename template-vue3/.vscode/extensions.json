@@ -8,15 +8,14 @@
     "eamodio.gitlens",
 
     // Node / npm
-    "eg2.vscode-npm-script",
     "christian-kohler.npm-intellisense",
 
     // JavaScript
     "dbaeumer.vscode-eslint",
 
     // Vue.js
-    "johnsoncodehk.volar",
-    "johnsoncodehk.vscode-typescript-vue-plugin",
+    "Vue.volar",
+    "Vue.vscode-typescript-vue-plugin",
 
     // Vitejs
     "antfu.vite",
