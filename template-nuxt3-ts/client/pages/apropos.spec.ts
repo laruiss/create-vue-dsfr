@@ -5,7 +5,7 @@ import Apropos from './apropos.vue'
 const VIcon = { props: ['name'], template: '<i :class="name"></i>' }
 
 describe('apropos', () => {
-  it('should render a simple accordion', async () => {
+  it('should render a simple accordion', () => {
     const title = 'À propos'
 
     const { getByText } = render(Apropos, {

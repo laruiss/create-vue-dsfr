@@ -18,7 +18,8 @@ const quickLinks = [
   {
     label: 'À propos',
     path: '/a-propos',
-    class: 'fr-fi-user-line',
+    icon: 'ri-question-mark',
+    iconRight: true,
   },
 ]
 const searchQuery = ref('')

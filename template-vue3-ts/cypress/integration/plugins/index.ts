@@ -8,7 +8,7 @@
 import { startDevServer } from '@cypress/vite-dev-server'
 import path from 'path'
 
-module.exports = (on, config) => {
+export default (on, config) => {
   on('dev-server:start', (options) => {
     return startDevServer({
       options,

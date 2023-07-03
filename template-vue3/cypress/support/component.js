@@ -1,5 +1,8 @@
+import '@gouvfr/dsfr/dist/dsfr.min.css'
+import '@gouvminint/vue-dsfr/styles'
+
 // ***********************************************************
-// This example support/index.js is processed and
+// This example support/component.ts is processed and
 // loaded automatically before your test files.
 //
 // This is a great place to put global configuration and
@@ -14,8 +17,21 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-// import './mailhog-commands.ts'
-import './commands.ts'
+import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+import { mount } from 'cypress/vue'
+
+Cypress.Commands.add('mount', (component, options = {}) => {
+  options.global = options.global || {}
+  options.global.stubs = options.global.stubs || {}
+  options.global.stubs.transition = false
+
+  return mount(component, options)
+})
+
+// Example use:
+// cy.mount(MyComponent)
+

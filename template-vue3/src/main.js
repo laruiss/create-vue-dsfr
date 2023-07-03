@@ -17,5 +17,5 @@ import './main.css'
 createApp(App)
   .use(createPinia())
   .use(router)
-  .use(VueDsfr, { icons: Object.values(icons)})
+  .use(VueDsfr, { icons: Object.values(icons) })
   .mount('#app')

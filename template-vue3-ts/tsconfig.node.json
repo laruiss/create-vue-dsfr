@@ -1,0 +1,20 @@
+{
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "include": [
+    "./auto-imports.d.ts",
+    "./vue-dsfr-auto-import-preset.ts",
+    "./env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.vue",
+    "vite.config.*",
+    "vitest.config.*",
+    "cypress.config.*",
+    "nightwatch.conf.*",
+    "playwright.config.*"
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "module": "ESNext",
+    "types": ["node", "vitest"]
+  }
+}

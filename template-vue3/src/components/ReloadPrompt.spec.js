@@ -1,4 +1,3 @@
-import { vi } from 'vitest'
 import { render } from '@testing-library/vue'
 
 import { addIcons, OhVueIcon as VIcon } from 'oh-vue-icons'
@@ -53,7 +52,7 @@ describe('ReloadPrompt', () => {
     // Given
 
     // When
-    const { container, getByRole } = render(ReloadPrompt, {
+    const { container, getAllByRole } = render(ReloadPrompt, {
       global: {
         components: {
           DsfrButton,
@@ -65,7 +64,7 @@ describe('ReloadPrompt', () => {
       },
     })
 
-    const navEl = getByRole('alert')
+    const navEl = getAllByRole('alert')[0]
     const buttons = container.querySelectorAll('button')
 
     // Then
