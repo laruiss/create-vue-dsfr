@@ -5,10 +5,9 @@ export default defineConfig({
     devServer: {
       framework: 'vue',
       bundler: 'vite',
-      componentFolder: 'src',
-      viewportHeight: 500,
-      viewportWidth: 1000,
     },
+    viewportHeight: 500,
+    viewportWidth: 1000,
     specPattern: [
       'src/**/*.{cy,ct}.{js,jsx,ts,tsx}',
     ],

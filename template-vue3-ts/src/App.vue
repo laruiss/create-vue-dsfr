@@ -11,13 +11,13 @@ const logoText = ['Ministère', 'de l’intérieur']
 const quickLinks = [
   {
     label: 'Home',
-    path: '/',
+    to: '/',
     icon: 'ri-home-4-line',
     iconAttrs: { color: 'var(--red-marianne-425-625)' },
   },
   {
     label: 'À propos',
-    path: '/a-propos',
+    to: '/a-propos',
     icon: 'ri-question-mark',
     iconRight: true,
   },
@@ -34,29 +34,6 @@ const close = () => {
   offlineReady.value = false
   needRefresh.value = false
 }
-
-const currentLanguage = ref('fr')
-const languages = [
-  {
-    codeIso: 'fr',
-    label: 'Français',
-  },
-  {
-    codeIso: 'en',
-    label: 'English',
-  },
-  {
-    codeIso: 'de',
-    label: 'Deutsch',
-  },
-  {
-    codeIso: 'nl',
-    label: 'Dutch',
-  },
-]
-function changeLanguage (languageObject: { codeIso: string; label: string; }) {
-  currentLanguage.value = languageObject.codeIso
-}
 </script>
 
 <template>
@@ -68,15 +45,11 @@ function changeLanguage (languageObject: { codeIso: string; label: string; }) {
     :quick-links="quickLinks"
     show-search
   />
-  <div class="fr-container">
+
+  <div class="fr-container  fr-mt-3w  fr-mt-md-5w  fr-mb-5w">
     <router-view />
-    <VIcon name="ri-flag-line" />
-    <DsfrLanguageSelector
-      :languages="languages"
-      :current-language="currentLanguage"
-      @select="changeLanguage($event)"
-    />
   </div>
+
   <ReloadPrompt
     :offline-ready="offlineReady"
     :need-refresh="needRefresh"

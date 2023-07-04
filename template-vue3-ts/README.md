@@ -43,7 +43,7 @@ npm run build
 
 ## Voir l'application avec le code de production
 
-```
+```sh
 npm run preview
 ```
 
