@@ -1,34 +1,37 @@
 {
   "name": "create-vue-dsfr",
-  "version": "1.5.1",
-  "description": "",
-  "files": [
-    "index.js",
-    "template-*"
-  ],
-  "main": "index.js",
+  "version": "1.6.1",
+  "description": "Assistant d’installation pour les projets utilisant VueDsfr",
+  "author": "Stanislas Ormières <stan@stormier.ninja>",
   "bin": {
     "create-vue-dsfr": "index.js",
     "cvd": "index.js",
-    "vue-dsfr-update-icons": "update-icons.js",
-    "vue-dsfr-icons": "update-icons.js"
+    "vue-dsfr-icons": "update-icons.js",
+    "vue-dsfr-update-icons": "update-icons.js"
+  },
+  "bugs": {
+    "url": "https://github.com/laruiss/create-vue-dsfr/issues"
   },
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=8.0.0"
   },
-  "scripts": {},
+  "files": [
+    "index.js",
+    "template-*/**"
+  ],
+  "homepage": "https://github.com/laruiss/create-vue-dsfr#readme",
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "overrides": {
+    "graceful-fs": "^4.2.10"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/laruiss/create-vue-dsfr.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/laruiss/create-vue-dsfr/issues"
-  },
-  "homepage": "https://github.com/laruiss/create-vue-dsfr#readme",
+  "scripts": {},
   "dependencies": {
     "adm-zip": "^0.5.10",
     "archiver": "^5.3.1",
@@ -41,8 +44,5 @@
   "devDependencies": {
     "@types/node": "^18.11.18",
     "prettier": "^2.8.1"
-  },
-  "overrides": {
-    "graceful-fs": "^4.2.10"
   }
 }
