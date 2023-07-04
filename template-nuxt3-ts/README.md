@@ -25,7 +25,7 @@ Génère le code de production de l’application :
 npm run build
 ```
 
-Locally preview production build:
+Prévisualisation du code de prod (nécessite un build préalable) :
 
 ```bash
 npm run preview

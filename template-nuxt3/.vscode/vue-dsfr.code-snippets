@@ -27,7 +27,6 @@
     "scope": "vue",
     "prefix": "script setup",
     "body": [
-        "<script lang=\"ts\" setup>",
         "<script setup>",
         "defineProps({",
         "  $1",

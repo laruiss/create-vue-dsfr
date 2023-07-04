@@ -1,7 +1,7 @@
-<script>
-export default {
+<script setup>
+definePageMeta({
   layout: 'basic',
-}
+})
 </script>
 
 <template>

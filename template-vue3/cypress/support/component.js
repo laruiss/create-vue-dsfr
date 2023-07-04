@@ -34,4 +34,3 @@ Cypress.Commands.add('mount', (component, options = {}) => {
 
 // Example use:
 // cy.mount(MyComponent)
-

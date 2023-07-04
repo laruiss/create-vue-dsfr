@@ -4,10 +4,12 @@ defineProps<{
   needRefresh?: boolean,
 }>()
 
-defineEmits<{
+type EventTypes = {
   (event: 'close'): void
   (event: 'updateServiceWorker'): void
-}>()
+}
+
+defineEmits<EventTypes>()
 </script>
 
 <template>

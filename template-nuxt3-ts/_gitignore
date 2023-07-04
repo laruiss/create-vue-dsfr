@@ -348,8 +348,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,node,windows,macos,linux,intellij
-.eslintrc-auto-import.json
-auto-imports.d.ts
+
 
 /cypress/videos/
 /cypress/screenshots/
