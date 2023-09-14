@@ -1,7 +1,5 @@
-import matchers from '@testing-library/jest-dom/matchers'
-import { expect } from 'vitest'
-
-expect.extend(matchers)
+// setupTests.ts
+import "@testing-library/jest-dom/vitest";
 
 window.matchMedia = function () {
   return { matches: false }
