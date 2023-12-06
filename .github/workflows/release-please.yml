@@ -20,6 +20,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
           target-branch: main
+          config-file: .release-please-config.json
       - name: Checkout repository
         uses: actions/checkout@v4
         if: ${{ steps.release.outputs.release_created }}
