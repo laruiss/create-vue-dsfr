@@ -24,6 +24,7 @@ module.exports = {
     {
       files: [
         'cypress/e2e/*.{spec,e2e}.{js,ts,jsx,tsx}',
+        'cypress/support/*.{js,ts,jsx,tsx}',
         'src/**/*.{ct,cy}.{js,ts,jsx,tsx}',
       ],
       extends: [

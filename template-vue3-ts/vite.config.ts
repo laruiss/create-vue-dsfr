@@ -14,7 +14,29 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
-    VitePWA({}),
+    VitePWA({
+      registerType: 'autoUpdate',
+      includeAssets: ['favicon.svg', 'safari-pinned-tab.svg'],
+      manifest: {
+        name: 'Dummy app',
+        short_name: 'Dummy',
+        theme_color: '#ffffff',
+        background_color: '#ffffff',
+        icons: [
+          {
+            src: '/android-chrome-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: '/android-chrome-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+        ],
+        display: 'standalone',
+      },
+    }),
     AutoImport({
       include: [
         /\.[tj]sx?$/,
