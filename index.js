@@ -45,11 +45,6 @@ const FRAMEWORKS = [
     color: green,
     variants: [
       {
-        name: 'nuxt3',
-        display: 'JavaScript',
-        color: yellow
-      },
-      {
         name: 'nuxt3-ts',
         display: 'TypeScript',
         color: blue
