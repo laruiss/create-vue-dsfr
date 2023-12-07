@@ -20,7 +20,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
           target-branch: main
-          config-file: .release-please.config.json
+          config-file: release-please-config.json
       - name: Checkout repository
         uses: actions/checkout@v4
         if: ${{ steps.release.outputs.release_created }}
@@ -31,13 +31,6 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
       - run: npm ci
         if: ${{ steps.release.outputs.release_created }}
-      - run: npm run build
-        if: ${{ steps.release.outputs.release_created }}
-      - name: Upload Release Artifact
-        if: ${{ steps.release.outputs.release_created }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload ${{ steps.release.outputs.tag_name }} ./package.json ./README.md ./index.js ./src ./template-*
       - run: npm publish
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
