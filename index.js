@@ -18,7 +18,8 @@ const {
   lightGreen,
   red,
   gray,
-  lightGray,
+  lightBlue,
+  magenta,
 } = require('kolorist')
 
 const cwd = process.cwd()
@@ -29,32 +30,32 @@ const FRAMEWORKS = [
     color: lightGreen,
     variants: [
       {
-        name: 'vue3',
-        display: 'JavaScript',
+        name: 'vue3-ts-simple',
+        display: ' Vue3, TS, ESlint, VueDsfr, Autoimport',
         color: yellow
       },
       {
-        name: 'vue3-ts',
-        display: 'TypeScript',
-        color: blue
-      }
-    ]
+        name: 'vue3-ts-complet',
+        display:  'Vue3, TS, ESLint, VueDsfr, Autoimport, Pinia, PWA, Prettier, Vitest, Cypress',
+        color: magenta
+      },
+    ],
   },
   {
     name: 'Nuxt 3',
     color: green,
     variants: [
       {
-        name: 'nuxt3',
-        display: 'JavaScript',
-        color: yellow
+        name: 'nuxt3-ts-simple',
+        display: ' Nuxt3, TS, ESLint',
+        color: lightBlue
       },
       {
-        name: 'nuxt3-ts',
-        display: 'TypeScript',
+        name: 'nuxt3-ts-complet',
+        display: 'Nuxt3, TS, ESLint, Vitest, Cypress',
         color: blue
-      }
-    ]
+      },
+    ],
   },
 ]
 
@@ -132,13 +133,13 @@ async function init() {
           type: (framework) =>
             framework && framework.variants ? 'select' : null,
           name: 'variant',
-          message: 'Select a variant:',
+          message: 'Faites votre choix :',
           // @ts-ignore
           choices: (framework) =>
             framework.variants.map((variant) => {
               const variantColor = variant.color
               return {
-                title: variantColor(variant.name),
+                title: variantColor(variant.name) + gray(` ${variant.display}`),
                 value: variant.name
               }
             })
