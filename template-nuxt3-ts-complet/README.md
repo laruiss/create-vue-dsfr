@@ -83,18 +83,12 @@ npm run test:unit
 
 ## Lancer les tests de bout-en-bout avec Cypress
 
-Cypress est déjà configuré pour vos tests de bout-en-bout (end-to-end).
+Playwright est déjà configuré pour vos tests de bout-en-bout (end-to-end).
 
 Pour les lancer avec l’interface :
 
 ```bash
 npm run test:e2e
-```
-
-Pour les lancer sans l’interface (dans la CI) :
-
-```bash
-npm run test:e2e:ci
 ```
 
 Regarder ensuite la [documentation de Nuxt concernant le déploiement](https://nuxt.com/docs/getting-started/deployment).

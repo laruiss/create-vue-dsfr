@@ -1,3 +1,9 @@
+<script setup lang="ts">
+defineProps({
+  error: Object,
+})
+</script>
+
 <template>
   <NuxtLayout>
     <main
@@ -107,9 +113,3 @@
     </main>
   </NuxtLayout>
 </template>
-
-<script setup lang="ts">
-defineProps({
-  error: Object,
-})
-</script>

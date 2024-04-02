@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { DsfrFooter, DsfrHeader, DsfrSkipLinks } from '@gouvminint/vue-dsfr'
-
 const serviceTitle = 'Service'
 const serviceDescription = 'Description du service'
 const logoText = ['Ministère', 'de l’Intérieur', 'et des Outre-Mer']

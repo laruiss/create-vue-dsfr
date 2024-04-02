@@ -63,35 +63,10 @@ npm run lint
 npm run test:unit
 ```
 
-### Lancer les tests de composants avec [Cypress](https://www.cypress.io/)
-
-#### Avec une interface graphique
-
-```sh
-npm run test:ct
-```
-
-#### Sans interface graphique (pour la CI)
-
-```sh
-npm run test:ct:ci
-```
-
-### Lancer les Tests End-to-End Tests avec [Cypress](https://www.cypress.io/)
+### Lancer les Tests End-to-End Tests avec [Playwright](https://playwright.dev/)
 
 ```sh
 npm run test:e2e:dev
-```
-
-Cela lance les tests end-to-end avec le code de développement et le server de développement Vite.
-C’est bien plus rapide que le build de production.
-
-Cependant, il est recommandé de lancer les tests end-to-end avec le code de production : il faut lancer le build puis lancer
-cypress avec le server Vite qui sert le code de production :
-
-```sh
-npm run build
-npm run test:e2e
 ```
 
 ### Analyse statique du code avec [ESLint](https://eslint.org/)

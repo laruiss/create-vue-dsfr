@@ -17,12 +17,10 @@
     "Vue.volar",
     "Vue.vscode-typescript-vue-plugin",
 
-    // Vitejs
-    "antfu.vite",
-    "antfu.browse-lite",
-
     // CSS
-    "csstools.postcss",
     "stylelint.vscode-stylelint",
+
+    // VueDsfr
+    "stormier.vue-dsfr-snippets"
   ]
 }

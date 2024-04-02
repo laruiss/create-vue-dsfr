@@ -359,3 +359,6 @@ $RECYCLE.BIN/
 *.njsproj
 *.sln
 *.sw?
+
+client/auto-imports.d.ts
+playwright-report/

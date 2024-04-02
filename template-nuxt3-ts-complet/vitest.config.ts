@@ -1,13 +1,51 @@
-import { fileURLToPath } from 'node:url'
-import { defineVitestConfig } from 'nuxt-vitest/config'
+import { defineVitestConfig } from '@nuxt/test-utils/config'
+import AutoImport from 'unplugin-auto-import/vite'
+import {
+  ohVueIconAutoimportPreset,
+  vueDsfrAutoimportPreset,
+} from '@gouvminint/vue-dsfr'
 
 export default defineVitestConfig({
+  plugins: [
+    AutoImport({
+      include: [
+        /\.[tj]sx?$/,
+        /\.vue$/,
+        /\.vue\?vue/,
+      ],
+      imports: [
+        // @ts-expect-error ts2322
+        'vue',
+        // @ts-expect-error ts2322
+        'vue-router',
+        // @ts-expect-error ts2322
+        'pinia',
+        // @ts-expect-error ts2322
+        'vitest',
+        // @ts-expect-error ts2740
+        vueDsfrAutoimportPreset,
+        // @ts-expect-error ts2740
+        ohVueIconAutoimportPreset,
+      ],
+      vueTemplate: true,
+      dts: './auto-imports.d.ts',
+      eslintrc: {
+        enabled: true,
+        filepath: './.eslintrc-auto-import.json',
+        globalsPropValue: true,
+      },
+    }),
+  ],
   test: {
-    environment: 'happy-dom',
+    environment: 'nuxt',
     globals: true,
+    exclude: [
+      '**/node_modules/**',
+      './.nuxt/**',
+      'tests/e2e/**',
+    ],
     setupFiles: [
-      fileURLToPath(new URL('./vitest-setup.ts', import.meta.url)),
+      '../vitest-setup.ts',
     ],
   },
-  // any custom vitest config you require
 })

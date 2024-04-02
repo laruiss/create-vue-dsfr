@@ -1,14 +1,14 @@
-import { render } from '@testing-library/vue'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
 
 import Apropos from './apropos.vue'
 
 const VIcon = { props: ['name'], template: '<i :class="name"></i>' }
 
 describe('apropos', () => {
-  it('should render a simple accordion', () => {
+  it('should render a simple title', async () => {
     const title = 'À propos'
 
-    const { getByText } = render(Apropos, {
+    const component = await mountSuspended(Apropos, {
       global: {
         components: {
           VIcon,
@@ -16,9 +16,7 @@ describe('apropos', () => {
       },
     })
 
-    const titleEl = getByText(title)
-
-    expect(titleEl).toHaveProperty('tagName', 'H1')
-    expect(titleEl).toHaveClass('fr-mt-4w')
+    expect(component.find('h1').text()).toBe(title)
+    expect(component.find('h1').element).toHaveClass('fr-mt-4w')
   })
 })

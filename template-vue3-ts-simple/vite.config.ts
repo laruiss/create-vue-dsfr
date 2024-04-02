@@ -1,30 +1,37 @@
-import { fileURLToPath, URL } from 'node:url'
+import { URL, fileURLToPath } from 'node:url'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import { vueDsfrAutoimportPreset, ohVueIconAutoimportPreset, vueDsfrComponentResolver } from '@gouvminint/vue-dsfr'
-
-const isCypress = process.env.CYPRESS === 'true'
+import {
+  vueDsfrAutoimportPreset,
+  ohVueIconAutoimportPreset,
+  vueDsfrComponentResolver,
+} from '@gouvminint/vue-dsfr'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: process.env.BASE_URL || '/',
   plugins: [
     vue(),
     vueJsx(),
     AutoImport({
       include: [
         /\.[tj]sx?$/,
-        /\.vue$/, /\.vue\?vue/,
+        /\.vue$/,
+        /\.vue\?vue/,
       ],
       imports: [
+        // @ts-expect-error
         'vue',
+        // @ts-expect-error
         'vue-router',
-        ...(isCypress ? [] : ['vitest']),
+        // @ts-expect-error
+        'vitest',
+        // @ts-expect-error
         vueDsfrAutoimportPreset,
+        // @ts-expect-error
         ohVueIconAutoimportPreset,
       ],
       vueTemplate: true,
@@ -38,7 +45,7 @@ export default defineConfig({
     // https://github.com/antfu/unplugin-vue-components
     Components({
       extensions: ['vue'],
-      // allow auto import and register components
+      dirs: ['src/components'], // Autoimport de vos composants qui sont dans le dossier `src/components`
       include: [/\.vue$/, /\.vue\?vue/],
       dts: './src/components.d.ts',
       resolvers: [
@@ -46,6 +53,7 @@ export default defineConfig({
       ],
     }),
   ],
+  base: process.env.BASE_URL || '/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
