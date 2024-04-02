@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/laruiss/create-vue-dsfr/compare/v1.7.0...v1.8.0) (2024-04-02)
+
+
+### Features
+
+* ✨ use latest deps and playwright ([9e35a47](https://github.com/laruiss/create-vue-dsfr/commit/9e35a473d4d8a86357e02dc8c5904e4c49a1b369))
+
 ## [1.7.0](https://github.com/laruiss/create-vue-dsfr/compare/v1.6.3...v1.7.0) (2023-12-12)
 
 
