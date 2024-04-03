@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.9.0](https://github.com/laruiss/create-vue-dsfr/compare/v1.8.0...v1.9.0) (2024-04-03)
+
+
+### Features
+
+* ✨ add features for vue3 complete template ([bf82a82](https://github.com/laruiss/create-vue-dsfr/commit/bf82a82ca3106b538c3f22af6ec6b59323531a6c))
+* ✨ add featurs for vue3-ts template ([01e0f34](https://github.com/laruiss/create-vue-dsfr/commit/01e0f34475cddc695bb0f90fd5fdbd2679f988b2))
+
+
+### Bug Fixes
+
+* 🐛 we use only eslint, now ([e14f2bd](https://github.com/laruiss/create-vue-dsfr/commit/e14f2bde7a064f53ccf1f4594d9a56f211d16d16))
+
 ## [1.8.0](https://github.com/laruiss/create-vue-dsfr/compare/v1.7.0...v1.8.0) (2024-04-02)
 
 
