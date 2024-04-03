@@ -1,11 +1,4 @@
 {
-  "files": [],
-  "ts-node": {
-    "transpileOnly": true,
-    "compilerOptions": {
-      "module": "ES2015"
-    }
-  },
   "references": [
     {
       "path": "./tsconfig.node.json"
@@ -16,5 +9,6 @@
     {
       "path": "./tsconfig.vitest.json"
     }
-  ]
+  ],
+  "files": []
 }

@@ -1,7 +1,6 @@
 import { fileURLToPath } from 'node:url'
-import { mergeConfig } from 'vite'
-import { configDefaults, defineConfig } from 'vitest/config'
-import viteConfig from './vite.config.js'
+import { configDefaults, defineConfig, mergeConfig } from 'vitest/config'
+import viteConfig from './vite.config'
 
 export default mergeConfig(
   viteConfig,
@@ -13,9 +12,6 @@ export default mergeConfig(
       setupFiles: [
         fileURLToPath(new URL('./vitest-setup.ts', import.meta.url)),
       ],
-      transformMode: {
-        web: [/\.[jt]sx$/],
-      },
     },
   }),
 )
