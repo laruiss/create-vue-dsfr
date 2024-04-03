@@ -1,6 +1,6 @@
 {
   "name": "create-vue-dsfr",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "Assistant d’installation pour les projets utilisant VueDsfr",
   "author": "Stanislas Ormières <stan@stormier.ninja>",
   "bin": {
