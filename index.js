@@ -31,12 +31,12 @@ const FRAMEWORKS = [
     variants: [
       {
         name: 'vue3-ts-simple',
-        display: ' Vue3, TS, ESlint, VueDsfr, Autoimport',
+        display: ' Vue3, TS, ESlint, Autoimport, VueDsfr',
         color: yellow
       },
       {
         name: 'vue3-ts-complet',
-        display:  'Vue3, TS, ESLint, VueDsfr, Autoimport, Pinia, PWA, Prettier, Vitest, Cypress',
+        display:  'Vue3, TS, ESLint, Autoimport, Pinia, PWA, Vitest, Playwright, VueDsfr',
         color: magenta
       },
     ],
@@ -47,12 +47,12 @@ const FRAMEWORKS = [
     variants: [
       {
         name: 'nuxt3-ts-simple',
-        display: ' Nuxt3, TS, ESLint',
+        display: 'Nuxt3, TS, ESLint, VueDsfr',
         color: lightBlue
       },
       {
         name: 'nuxt3-ts-complet',
-        display: 'Nuxt3, TS, ESLint, Vitest, Cypress',
+        display: 'Nuxt3, TS, ESLint, Vitest, Playwright, PWA, VueDsfr',
         color: blue
       },
     ],
@@ -81,7 +81,7 @@ async function init() {
         {
           type: targetDir ? null : 'text',
           name: 'projectName',
-          message: 'Nom du projet:',
+          message: 'Nom du projet :',
           initial: defaultProjectName,
           onState: (state) =>
             (targetDir = state.value.trim() || defaultProjectName)
