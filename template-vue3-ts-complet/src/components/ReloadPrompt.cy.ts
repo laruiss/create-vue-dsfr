@@ -3,7 +3,7 @@ import { mount } from '@cypress/vue'
 import '@gouvminint/vue-dsfr/styles'
 
 import { OhVueIcon, addIcons } from 'oh-vue-icons'
-import { RiRefreshLine, RiSearchLine, RiCloseLine } from 'oh-vue-icons/icons/ri/index.js'
+import { RiCloseLine, RiRefreshLine, RiSearchLine } from 'oh-vue-icons/icons/ri/index.js'
 import { DsfrButton } from '@gouvminint/vue-dsfr'
 
 import ReloadPrompt from './ReloadPrompt.vue'

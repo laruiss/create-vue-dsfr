@@ -3,7 +3,7 @@
 declare module 'virtual:pwa-register/vue' {
   import type { Ref } from 'vue'
 
-  export type RegisterSWOptions = {
+  export interface RegisterSWOptions {
     immediate?: boolean
     onNeedRefresh?: () => void
     onOfflineReady?: () => void
@@ -11,7 +11,7 @@ declare module 'virtual:pwa-register/vue' {
     onRegisterError?: (error: any) => void
   }
 
-  export function useRegisterSW(options?: RegisterSWOptions): {
+  export function useRegisterSW (options?: RegisterSWOptions): {
     needRefresh: Ref<boolean>
     offlineReady: Ref<boolean>
     updateServiceWorker: (reloadPage?: boolean) => Promise<void>

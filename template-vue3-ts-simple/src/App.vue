@@ -1,6 +1,7 @@
 <script setup lang="ts">
-useScheme()
 import useToaster from './composables/use-toaster'
+
+useScheme()
 
 const toaster = useToaster()
 

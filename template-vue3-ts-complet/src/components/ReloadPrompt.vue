@@ -1,15 +1,15 @@
 <script lang="ts" setup>
 defineProps<{
-  offlineReady?: boolean,
-  needRefresh?: boolean,
+  offlineReady?: boolean
+  needRefresh?: boolean
 }>()
 
-type EventTypes = {
+defineEmits<EventTypes>()
+
+interface EventTypes {
   (event: 'close'): void
   (event: 'updateServiceWorker'): void
 }
-
-defineEmits<EventTypes>()
 </script>
 
 <template>

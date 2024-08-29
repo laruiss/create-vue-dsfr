@@ -1,3 +1,4 @@
+import process from 'node:process'
 import { URL, fileURLToPath } from 'node:url'
 
 import { defineConfig } from 'vite'
@@ -49,17 +50,17 @@ export default defineConfig({
         /\.vue\?vue/,
       ],
       imports: [
-        // @ts-expect-error
+        // @ts-expect-error TS2322
         'vue',
-        // @ts-expect-error
+        // @ts-expect-error TS2322
         'vue-router',
-        // @ts-expect-error
+        // @ts-expect-error TS2322
         'pinia',
-        // @ts-expect-error
+        // @ts-expect-error TS2322
         'vitest',
-        // @ts-expect-error
+        // @ts-expect-error TS2322
         vueDsfrAutoimportPreset,
-        // @ts-expect-error
+        // @ts-expect-error TS2322
         ohVueIconAutoimportPreset,
       ],
       vueTemplate: true,

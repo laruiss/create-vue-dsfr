@@ -5,36 +5,36 @@ const alphanumBase = 'abcdefghijklmnopqrstuvwyz0123456789'
 
 const alphanum = alphanumBase.repeat(10)
 
-const getRandomAlphaNum = () => {
+function getRandomAlphaNum () {
   const randomIndex = Math.floor(Math.random() * alphanum.length)
   return alphanum[randomIndex]
 }
 
-const getRandomHtmlId = (prefix = '', suffix = '') => {
-  return (prefix ? prefix + '-' : '') + getRandomString(5) + (suffix ? '-' + suffix : '')
+function getRandomHtmlId (prefix = '', suffix = '') {
+  return (prefix ? `${prefix}-` : '') + getRandomString(5) + (suffix ? `-${suffix}` : '')
 }
 
-const getRandomString = (length: number) => {
+function getRandomString (length: number) {
   return Array.from({ length })
     .map(getRandomAlphaNum).join('')
 }
 
-export type Message = {
-  id?: string;
-  title?: string;
-  description: string;
-  type?: 'info' | 'success' | 'warning' | 'error';
-  closeable?: boolean;
-  titleTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-  timeout?: number;
-  style?: Record<string, string>;
-  class?: string | Record<string, string> | Array<string | Record<string, string>>;
+export interface Message {
+  id?: string
+  title?: string
+  description: string
+  type?: 'info' | 'success' | 'warning' | 'error'
+  closeable?: boolean
+  titleTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  timeout?: number
+  style?: Record<string, string>
+  class?: string | Record<string, string> | Array<string | Record<string, string>>
 }
 
 const timeouts: Record<string, number> = {}
 const messages: Message[] = reactive([])
 
-const useToaster = (defaultTimeout = 10000) => {
+function useToaster (defaultTimeout = 10000) {
   function removeMessage (id: string) {
     const index = messages.findIndex(message => message.id === id)
     clearTimeout(timeouts[id])

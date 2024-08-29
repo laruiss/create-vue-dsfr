@@ -1,8 +1,8 @@
 import { render } from '@testing-library/vue'
 
-import { addIcons, OhVueIcon as VIcon } from 'oh-vue-icons'
+import { OhVueIcon as VIcon, addIcons } from 'oh-vue-icons'
 
-import { RiRefreshLine, RiSearchLine, RiCloseLine } from 'oh-vue-icons/icons/ri/index.js'
+import { RiCloseLine, RiRefreshLine, RiSearchLine } from 'oh-vue-icons/icons/ri/index.js'
 
 import { DsfrButton } from '@gouvminint/vue-dsfr'
 
@@ -22,7 +22,7 @@ vi.mock('virtual:pwa-register/vue', () => {
   }
 })
 
-describe('ReloadPrompt', () => {
+describe('reloadPrompt', () => {
   it('should render ReloadPrompt with right content', async () => {
     // Given
 

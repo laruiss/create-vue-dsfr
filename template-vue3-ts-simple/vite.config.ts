@@ -1,3 +1,4 @@
+import process from 'node:process'
 import { URL, fileURLToPath } from 'node:url'
 
 import { defineConfig } from 'vite'
@@ -6,8 +7,8 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import {
-  vueDsfrAutoimportPreset,
   ohVueIconAutoimportPreset,
+  vueDsfrAutoimportPreset,
   vueDsfrComponentResolver,
 } from '@gouvminint/vue-dsfr'
 
@@ -23,15 +24,15 @@ export default defineConfig({
         /\.vue\?vue/,
       ],
       imports: [
-        // @ts-expect-error
+        // @ts-expect-error TS2322
         'vue',
-        // @ts-expect-error
+        // @ts-expect-error TS2322
         'vue-router',
-        // @ts-expect-error
+        // @ts-expect-error TS2322
         'vitest',
-        // @ts-expect-error
+        // @ts-expect-error TS2322
         vueDsfrAutoimportPreset,
-        // @ts-expect-error
+        // @ts-expect-error TS2322
         ohVueIconAutoimportPreset,
       ],
       vueTemplate: true,
