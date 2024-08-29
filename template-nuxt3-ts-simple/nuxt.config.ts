@@ -39,7 +39,7 @@ export default defineNuxtConfig({
     public: {
       vueDsfr: {
         icons: Object.values(icons),
-      }, 
+      },
     },
   },
   css: [
