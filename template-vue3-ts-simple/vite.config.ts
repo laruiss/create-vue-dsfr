@@ -7,7 +7,6 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import {
-  ohVueIconAutoimportPreset,
   vueDsfrAutoimportPreset,
   vueDsfrComponentResolver,
 } from '@gouvminint/vue-dsfr'
@@ -32,8 +31,6 @@ export default defineConfig({
         'vitest',
         // @ts-expect-error TS2322
         vueDsfrAutoimportPreset,
-        // @ts-expect-error TS2322
-        ohVueIconAutoimportPreset,
       ],
       vueTemplate: true,
       dts: './src/auto-imports.d.ts',

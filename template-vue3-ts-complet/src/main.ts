@@ -11,11 +11,8 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router/index'
-import * as icons from './icons'
 
 import './main.css'
-
-addIcons(...Object.values(icons))
 
 createApp(App)
   .use(createPinia())

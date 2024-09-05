@@ -9,7 +9,6 @@ import { VitePWA } from 'vite-plugin-pwa'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import {
-  ohVueIconAutoimportPreset,
   vueDsfrAutoimportPreset,
   vueDsfrComponentResolver,
 } from '@gouvminint/vue-dsfr'
@@ -23,6 +22,9 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'safari-pinned-tab.svg'],
+      workbox: {
+        maximumFileSizeToCacheInBytes: 3000000 // Pour le CSS du DSFR :-/
+      },
       manifest: {
         name: 'Dummy app',
         short_name: 'Dummy',
@@ -60,8 +62,6 @@ export default defineConfig({
         'vitest',
         // @ts-expect-error TS2322
         vueDsfrAutoimportPreset,
-        // @ts-expect-error TS2322
-        ohVueIconAutoimportPreset,
       ],
       vueTemplate: true,
       dts: './src/auto-imports.d.ts',
@@ -86,6 +86,6 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
-    dedupe: ['vue', 'oh-vue-icons'],
+    dedupe: ['vue'],
   },
 })
