@@ -13,11 +13,10 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
-    "@gouvfr/dsfr": "^1.11.2",
-    "@gouvminint/vue-dsfr": "^5.19.3",
+    "@gouvfr/dsfr": "~1.12.1",
+    "@gouvminint/vue-dsfr": "^6.0.0",
     "focus-trap": "^7.5.4",
     "focus-trap-vue": "^4.0.3",
-    "oh-vue-icons": "1.0.0-rc3",
     "vue": "^3.4.38",
     "vue-router": "^4.4.3"
   },
@@ -33,7 +32,6 @@
     "@vue/tsconfig": "^0.5.1",
     "eslint": "^9.9.1",
     "npm-run-all2": "^6.2.2",
-    "oh-vue-icons": "1.0.0-rc3",
     "rimraf": "^6.0.1",
     "typescript": "~5.5.4",
     "unplugin-auto-import": "^0.18.2",

@@ -1,7 +1,6 @@
 import { defineVitestConfig } from '@nuxt/test-utils/config'
 import AutoImport from 'unplugin-auto-import/vite'
 import {
-  ohVueIconAutoimportPreset,
   vueDsfrAutoimportPreset,
 } from '@gouvminint/vue-dsfr'
 
@@ -24,8 +23,6 @@ export default defineVitestConfig({
         'vitest',
         // @ts-expect-error ts2740
         vueDsfrAutoimportPreset,
-        // @ts-expect-error ts2740
-        ohVueIconAutoimportPreset,
       ],
       vueTemplate: true,
       dts: './auto-imports.d.ts',

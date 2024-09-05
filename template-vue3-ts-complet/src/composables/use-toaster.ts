@@ -15,8 +15,7 @@ function getRandomHtmlId (prefix = '', suffix = '') {
 }
 
 function getRandomString (length: number) {
-  return Array.from({ length })
-    .map(getRandomAlphaNum).join('')
+  return Array.from({ length }).map(getRandomAlphaNum).join('')
 }
 
 export interface Message {

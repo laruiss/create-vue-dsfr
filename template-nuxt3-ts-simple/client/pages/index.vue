@@ -23,12 +23,11 @@ useHead({ title: 'Page d’accueil - Gabarit de démarrage VueDsfr' })
        (<code>&lt;span class="fr-icon-ancient-gate-fill" /></code>)
     </p>
     <p>
-      <VIcon name="ri-flag-line" />  <!-- Icône OhVueIcon -->
-       (<code>&lt;VIcon name="ri-flag-line" /></code>)
-    </p>
-    <p>
-      <OhVueIcon name="ri-flag-line" />  <!-- Icône OhVueIcon -->
-       (<code>&lt;OhVueIcon name="ri-flag-line" /></code>)
+      <VIcon
+        ssr
+        name="ri-flag-line"
+      />  <!-- Icône Iconify -->
+       (<code>&lt;VIcon ssr name="ri-flag-line" /></code>)
     </p>
   </div>
 </template>

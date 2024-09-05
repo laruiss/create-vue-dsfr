@@ -1,14 +1,8 @@
 import { render } from '@testing-library/vue'
 
-import { OhVueIcon as VIcon, addIcons } from 'oh-vue-icons'
-
-import { RiCloseLine, RiRefreshLine, RiSearchLine } from 'oh-vue-icons/icons/ri/index.js'
-
-import { DsfrButton } from '@gouvminint/vue-dsfr'
+import { DsfrButton, VIcon } from '@gouvminint/vue-dsfr'
 
 import ReloadPrompt from './ReloadPrompt.vue'
-
-addIcons(RiRefreshLine, RiSearchLine, RiCloseLine)
 
 vi.mock('virtual:pwa-register/vue', () => {
   return {

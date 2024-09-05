@@ -1,7 +1,5 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
-import * as icons from './icons'
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
@@ -29,19 +27,15 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   devtools: { enabled: true },
   ssr: true,
   srcDir: 'client/',
+
   modules: [
     'vue-dsfr-nuxt-module',
   ],
-  runtimeConfig: {
-    public: {
-      vueDsfr: {
-        icons: Object.values(icons),
-      },
-    },
-  },
+
   css: [
     '@gouvfr/dsfr/dist/core/core.main.min.css',
     '@gouvfr/dsfr/dist/component/component.main.min.css',
@@ -51,9 +45,12 @@ export default defineNuxtConfig({
 
     '@gouvminint/vue-dsfr/styles',
   ],
+
   ignore: [
     '**/*.test.*',
     '**/*.spec.*',
     '**/*.cy.*',
   ],
+
+  compatibilityDate: '2024-09-05',
 })

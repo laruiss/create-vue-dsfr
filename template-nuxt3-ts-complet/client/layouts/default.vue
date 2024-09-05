@@ -7,12 +7,12 @@ const quickLinks = [
   {
     label: 'Accueil',
     to: '/',
-    icon: 'ri-home-2-line',
+    icon: { name: 'ri-home-2-line', ssr: true },
   },
   {
     label: 'À propos',
     to: '/apropos',
-    icon: 'ri-flag-line',
+    icon: { name: 'ri-flag-line', ssr: true },
   },
 ]
 

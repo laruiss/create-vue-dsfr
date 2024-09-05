@@ -11,7 +11,7 @@ declare module 'virtual:pwa-register/vue' {
     onRegisterError?: (error: any) => void
   }
 
-  export function useRegisterSW(options?: RegisterSWOptions): {
+  export function useRegisterSW (options?: RegisterSWOptions): {
     needRefresh: Ref<boolean>
     offlineReady: Ref<boolean>
     updateServiceWorker: (reloadPage?: boolean) => Promise<void>

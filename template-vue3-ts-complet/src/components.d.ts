@@ -14,6 +14,6 @@ declare module 'vue' {
     ReloadPrompt: typeof import('./components/ReloadPrompt.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    VIcon: typeof import('oh-vue-icons')['OhVueIcon']
+    VIcon: typeof import('@gouvminint/vue-dsfr')['VIcon']
   }
 }

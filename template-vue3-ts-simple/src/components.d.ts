@@ -10,6 +10,6 @@ declare module 'vue' {
     DsfrHeader: typeof import('@gouvminint/vue-dsfr')['DsfrHeader']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    VIcon: typeof import('oh-vue-icons')['OhVueIcon']
+    VIcon: typeof import('@gouvminint/vue-dsfr')['VIcon']
   }
 }

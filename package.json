@@ -25,7 +25,7 @@
   "license": "ISC",
   "main": "index.js",
   "overrides": {
-    "graceful-fs": "^4.2.10"
+    "graceful-fs": "^4.2.11"
   },
   "repository": {
     "type": "git",
@@ -33,16 +33,16 @@
   },
   "scripts": {},
   "dependencies": {
-    "adm-zip": "^0.5.10",
-    "archiver": "^5.3.1",
-    "kolorist": "^1.6.0",
-    "minimist": "^1.2.7",
+    "adm-zip": "^0.5.16",
+    "archiver": "^5.3.2",
+    "kolorist": "^1.8.0",
+    "minimist": "^1.2.8",
     "ohmyfetch": "^0.4.21",
     "prompts": "^2.4.2",
-    "rimraf": "^3.0.2"
+    "rimraf": "^6.0.1"
   },
   "devDependencies": {
-    "@types/node": "^18.11.18",
-    "prettier": "^2.8.1"
+    "@types/node": "^18.19.50",
+    "prettier": "^2.8.8"
   }
 }

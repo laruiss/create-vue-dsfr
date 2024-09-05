@@ -10,11 +10,8 @@ import { createApp } from 'vue'
 
 import App from './App.vue'
 import router from './router/index'
-import * as icons from './icons'
 
 import './main.css'
-
-addIcons(...Object.values(icons)) // Autoimporté grâce à ohVueIconAutoimportPreset dans vite.config.ts
 
 createApp(App)
   .use(router)
