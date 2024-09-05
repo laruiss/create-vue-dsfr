@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.0](https://github.com/laruiss/create-vue-dsfr/compare/v1.10.0...v1.11.0) (2024-09-05)
+
+
+### Features
+
+* ✨ utilise la v6 de VueDsfr ([b1e67d4](https://github.com/laruiss/create-vue-dsfr/commit/b1e67d4d277cee2b6c6e71327a8d654be462692a))
+
 ## [1.8.0](https://github.com/laruiss/create-vue-dsfr/compare/v1.7.0...v1.8.0) (2024-04-02)
 
 
