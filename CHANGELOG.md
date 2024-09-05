@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.9.0](https://github.com/laruiss/create-vue-dsfr/compare/v1.8.0...v1.9.0) (2024-09-05)
+
+
+### Features
+
+* ✨ add features for vue3 complete template ([bf82a82](https://github.com/laruiss/create-vue-dsfr/commit/bf82a82ca3106b538c3f22af6ec6b59323531a6c))
+* ✨ add featurs for vue3-ts template ([01e0f34](https://github.com/laruiss/create-vue-dsfr/commit/01e0f34475cddc695bb0f90fd5fdbd2679f988b2))
+* ✨ update dependencies for vue3-ts templates ([11f2509](https://github.com/laruiss/create-vue-dsfr/commit/11f2509b9cda7771b6c33de799b58f0fbd9825b2))
+* ✨ utilise la v6 de VueDsfr ([b1e67d4](https://github.com/laruiss/create-vue-dsfr/commit/b1e67d4d277cee2b6c6e71327a8d654be462692a))
+
+
+### Bug Fixes
+
+* 🐛 add AppToaster component ([158679e](https://github.com/laruiss/create-vue-dsfr/commit/158679e81a3babc4741637a6c162679cf3e953f4))
+* 🐛 e2e tests to nuxt3-ts-complet template ([7d57407](https://github.com/laruiss/create-vue-dsfr/commit/7d574075c606e3a00415bdb594f22ad33e645ebf))
+* 🐛 we use only eslint, now ([e14f2bd](https://github.com/laruiss/create-vue-dsfr/commit/e14f2bde7a064f53ccf1f4594d9a56f211d16d16))
+
 ## [1.8.0](https://github.com/laruiss/create-vue-dsfr/compare/v1.7.0...v1.8.0) (2024-04-02)
 
 
