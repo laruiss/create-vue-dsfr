@@ -232,6 +232,10 @@ $RECYCLE.BIN/
 .data
 .nitro
 
+# Playwright
+playwright-report
+test-results
+
 # Misc
 .fleet
 .idea
