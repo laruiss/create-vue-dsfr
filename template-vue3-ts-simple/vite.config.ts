@@ -2,20 +2,17 @@ import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vueJsx from '@vitejs/plugin-vue-jsx'
+import vueDevTools from 'vite-plugin-vue-devtools'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import { vueDsfrAutoimportPreset, ohVueIconAutoimportPreset, vueDsfrComponentResolver } from '@gouvminint/vue-dsfr'
+import { vueDsfrAutoimportPreset, vueDsfrComponentResolver } from '@gouvminint/vue-dsfr/meta'
 
-const isCypress = process.env.CYPRESS === 'true'
-
-// https://vitejs.dev/config/
+// https://vite.dev/config/
 export default defineConfig({
-  base: process.env.BASE_URL || '/',
   plugins: [
     vue(),
-    vueJsx(),
-    AutoImport({
+    vueDevTools(),
+AutoImport({
       include: [
         /\.[tj]sx?$/,
         /\.vue$/, /\.vue\?vue/,
@@ -23,9 +20,8 @@ export default defineConfig({
       imports: [
         'vue',
         'vue-router',
-        ...(isCypress ? [] : ['vitest']),
+        'vitest',
         vueDsfrAutoimportPreset,
-        ohVueIconAutoimportPreset,
       ],
       vueTemplate: true,
       dts: './src/auto-imports.d.ts',

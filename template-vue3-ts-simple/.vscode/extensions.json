@@ -10,15 +10,23 @@
     // JavaScript
     "dbaeumer.vscode-eslint",
 
+    // Playwright
+    "ms-playwright.playwright",
+
+    // OXC
+    "oxc.oxc-vscode",
+
+    // Vitest
+    "vitest.explorer",
+
     // Vue.js
     "Vue.volar",
-    "Vue.vscode-typescript-vue-plugin",
-    
+
     // VueDsfr
     "stormier.vue-dsfr-snippets",
 
     // CSS
     "csstools.postcss",
-    "stylelint.vscode-stylelint",
+    "stylelint.vscode-stylelint"
   ]
 }

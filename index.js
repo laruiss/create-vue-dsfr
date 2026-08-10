@@ -36,23 +36,23 @@ const FRAMEWORKS = [
       },
       {
         name: 'vue3-ts-complet',
-        display:  'Vue3, TS, ESLint, VueDsfr, Autoimport, Pinia, PWA, Prettier, Vitest, Cypress',
+        display:  'Vue3, TS, ESLint, VueDsfr, Autoimport, Pinia, Vitest, Playwright',
         color: magenta
       },
     ],
   },
   {
-    name: 'Nuxt 3',
+    name: 'Nuxt 4',
     color: green,
     variants: [
       {
-        name: 'nuxt3-ts-simple',
-        display: ' Nuxt3, TS, ESLint',
+        name: 'nuxt4-ts-simple',
+        display: ' Nuxt4, TS',
         color: lightBlue
       },
       {
-        name: 'nuxt3-ts-complet',
-        display: 'Nuxt3, TS, ESLint, Vitest, Cypress',
+        name: 'nuxt4-ts-complet',
+        display: 'Nuxt4, TS, ESLint, A11y',
         color: blue
       },
     ],
