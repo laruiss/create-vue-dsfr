@@ -33,12 +33,12 @@
   },
   "scripts": {},
   "dependencies": {
+    "@clack/prompts": "^0.7.0",
     "adm-zip": "^0.5.10",
     "archiver": "^5.3.1",
     "kolorist": "^1.6.0",
     "minimist": "^1.2.7",
     "ohmyfetch": "^0.4.21",
-    "prompts": "^2.4.2",
     "rimraf": "^3.0.2"
   },
   "devDependencies": {
