@@ -1,17 +1,12 @@
 #!/usr/bin/env node
 
 // @ts-check
-const path = require('path')
-const { mkdir, stat } = require('node:fs/promises')
-const fs = require('node:fs')
-
-const rimraf = require('rimraf')
-// Avoids autoconversion to number of the project name by defining that the args
-// non associated with an option ( _ ) needs to be parsed as a string. See #4606
-const argv = require('minimist')(process.argv.slice(2), { string: ['_'] })
-// eslint-disable-next-line node/no-restricted-require
-const clack = require('@clack/prompts')
-const {
+import path from 'path'
+import fs from 'node:fs'
+import { fileURLToPath } from 'node:url'
+import minimist from 'minimist'
+import * as clack from '@clack/prompts'
+import {
   yellow,
   green,
   blue,
@@ -20,9 +15,14 @@ const {
   gray,
   lightBlue,
   magenta,
-} = require('kolorist')
+} from 'kolorist'
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const cwd = process.cwd()
+
+// Avoids autoconversion to number of the project name by defining that the args
+// non associated with an option ( _ ) needs to be parsed as a string. See #4606
+const argv = minimist(process.argv.slice(2), { string: ['_'] })
 
 const FRAMEWORKS = [
   {
@@ -84,12 +84,12 @@ async function init() {
         if (!value) return 'Veuillez entrer un nom de projet'
       }
     })
-    
+
     if (clack.isCancel(projectName)) {
       clack.cancel(red('Opération annulée'))
       return
     }
-    
+
     targetDir = projectName.trim() || defaultProjectName
   }
 
@@ -102,17 +102,17 @@ async function init() {
         : `Le répertoire cible "${targetDir}"`) +
       ` n'est pas vide. Le supprimer et continuer ?`
     })
-    
+
     if (clack.isCancel(overwriteAnswer)) {
       clack.cancel(red('Opération annulée'))
       return
     }
-    
+
     if (overwriteAnswer === false) {
       clack.cancel(red('Opération annulée'))
       return
     }
-    
+
     overwrite = overwriteAnswer
   }
 
@@ -126,7 +126,7 @@ async function init() {
         if (!isValidPackageName(dir)) return 'Nom de package invalide'
       }
     })
-    
+
     if (clack.isCancel(packageName)) {
       clack.cancel(red('Opération annulée'))
       return
@@ -145,7 +145,7 @@ async function init() {
         label: fw.color(fw.name)
       }))
     })
-    
+
     if (clack.isCancel(framework)) {
       clack.cancel(red('Opération annulée'))
       return
@@ -162,7 +162,7 @@ async function init() {
         label: v.color(v.name) + gray(` ${v.display}`)
       }))
     })
-    
+
     if (clack.isCancel(variant)) {
       clack.cancel(red('Opération annulée'))
       return
@@ -200,7 +200,7 @@ async function init() {
     write(file)
   }
 
-  const pkg = require(path.join(templateDir, `package.json`))
+  const pkg = JSON.parse(fs.readFileSync(path.join(templateDir, 'package.json'), 'utf-8'))
 
   pkg.name = packageName || targetDir
 
@@ -271,7 +271,6 @@ function emptyDir(dir) {
   }
   for (const file of fs.readdirSync(dir)) {
     const abs = path.resolve(dir, file)
-    // baseline is Node 12 so can't use rmSync :(
     if (fs.lstatSync(abs).isDirectory()) {
       emptyDir(abs)
       fs.rmdirSync(abs)
