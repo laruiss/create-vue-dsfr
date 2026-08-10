@@ -16,8 +16,8 @@
     "lint:eslint": "eslint . --fix --cache"
   },
   "dependencies": {
-    "@gouvfr/dsfr": "^1.15.1",
-    "@gouvminint/vue-dsfr": "^8.18.3",
+    "@gouvfr/dsfr": "~1.14.4",
+    "@gouvminint/vue-dsfr": "^8.19.0",
     "@iconify/vue": "^5.0.1",
     "pinia": "^4.0.2",
     "vue": "^3.5.40",
@@ -51,6 +51,6 @@
     "vue-tsc": "^3.3.9"
   },
   "engines": {
-    "node": "^22.18.0 || >=24.12.0"
+    "node": ">=24.15.0"
   }
 }

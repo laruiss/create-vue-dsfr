@@ -5,9 +5,11 @@ import "@gouvfr/dsfr/dist/scheme/scheme.min.css";
 
 import "@gouvminint/vue-dsfr/styles";
 
+import { createPinia } from "pinia";
+
 import App from "./App.vue";
 import router from "./router/index";
 
 import "./main.css";
 
-createApp(App).use(router).mount("#app");
+createApp(App).use(createPinia()).use(router).mount("#app");
