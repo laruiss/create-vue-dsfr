@@ -1,0 +1,26 @@
+{
+  "name": "nuxt-dsfr-simple",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "icons": "vue-dsfr-icons -s scripts/icons.js -t app/icon-collections.ts"
+  },
+  "dependencies": {
+    "@gouvfr/dsfr": "~1.14.4",
+    "@gouvminint/vue-dsfr": "^8.19.0",
+    "@iconify/vue": "^5.0.1",
+    "nuxt": "^4.5.2",
+    "vue": "^3.5.41",
+    "vue-router": "^5.2.0"
+  },
+  "devDependencies": {
+    "@iconify-json/ri": "^1.2.10",
+    "chalk": "^6.0.0",
+    "commander": "^15.0.0"
+  }
+}
