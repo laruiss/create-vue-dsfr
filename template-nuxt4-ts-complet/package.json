@@ -1,0 +1,31 @@
+{
+  "name": "nuxt-dsfr-complet",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "icons": "vue-dsfr-icons -s scripts/icons.js -t app/icon-collections.ts"
+  },
+  "dependencies": {
+    "@gouvfr/dsfr": "~1.14.4",
+    "@gouvminint/vue-dsfr": "^8.19.0",
+    "@iconify/vue": "^5.0.1",
+    "@nuxt/a11y": "^1.0.0-alpha.1",
+    "nuxt": "^4.5.2",
+    "vue": "^3.5.41",
+    "vue-router": "^5.2.0"
+  },
+  "devDependencies": {
+    "@iconify-json/ri": "^1.2.10",
+    "@nuxt/eslint": "^1.17.0",
+    "@nuxt/test-utils": "^4.1.0",
+    "@playwright/test": "^1.62.1",
+    "eslint": "^10.8.1",
+    "chalk": "^6.0.0",
+    "commander": "^15.0.0"
+  }
+}
