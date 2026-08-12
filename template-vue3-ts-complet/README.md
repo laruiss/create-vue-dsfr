@@ -1,75 +1,72 @@
-# vue-dsfr-project
+# vue-complet
 
-Ce gabarit possède tous les outils configurés pour développer un projets Vue 3 et VueDsfr avec Vite.
+This template should help get you started developing with Vue 3 in Vite.
 
-## Configuration recommandée
+## Recommended IDE Setup
 
-- Visual Studio Code avec ces extensions :
-  - [VSCode](https://code.visualstudio.com/)
-  - [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur)
-  - [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin)
-  - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-  - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-  - [Vue Ecosystem Snippets](https://marketplace.visualstudio.com/items?itemName=matijao.vue-nuxt-snippets)
+[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-## Support de TypeScript pour les fichiers `.vue`
+## Recommended Browser Setup
 
-TypeScript ne sait pas gérer les informations de type pour les imports dans les fichiers `.vue` par défault, donc la CLI `tsc` est remplacée par `vue-tsc` pour la vérification des types. Dans les éditeurs, il est besoin de l’extension [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) pour rendre le service du langage TypeScript capable de gérer les types des fichiers `.vue`.
+- Chromium-based browsers (Chrome, Edge, Brave, etc.):
+  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
+  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
+- Firefox:
+  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
 
-Si le plugin TypeScript ne vous semble pas assez performant, Volar a aussi implémenté un [mode Take Over](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) qui est plus performant. Vous pouvez l’activer en suivant les étapes suivantes :
+## Type Support for `.vue` Imports in TS
 
-1. Désactiver l’extension TypeScript incluse
-    1) Lancer `Extensions: Show Built-in Extensions` depuis la palette de commandes VSCode
-    2) Trouver `TypeScript and JavaScript Language Features`, cliquer avec le bouton droit et sélectionner `Disable (Workspace)`
-2. Recharger la fenêtre VSCode en lançant `Developer: Reload Window` depuis la palette de commandes.
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
 
-## Installer les dépendances
+## Customize configuration
+
+See [Vite Configuration Reference](https://vite.dev/config/).
+
+## Project Setup
 
 ```sh
 npm install
 ```
 
-### Compilation et Hot-Reload pour le développement
+### Compile and Hot-Reload for Development
 
 ```sh
 npm run dev
 ```
 
-### Vérification des types, Compilation et Minification pour la Production
+### Type-Check, Compile and Minify for Production
 
 ```sh
 npm run build
 ```
 
-## Voir l'application avec le code de production
-
-```sh
-npm run preview
-```
-
-## Déployer le code de production
-
-Déployer le contenu du dossier `dist` après avoir généré le code de production.
-
-### Vérifier la syntaxe et le formattage avec [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
-
-### Lancer les Tests Unitaires avec [Vitest](https://vitest.dev/)
+### Run Unit Tests with [Vitest](https://vitest.dev/)
 
 ```sh
 npm run test:unit
 ```
 
-### Lancer les Tests End-to-End Tests avec [Playwright](https://playwright.dev/)
+### Run End-to-End Tests with [Playwright](https://playwright.dev)
 
 ```sh
-npm run test:e2e:dev
+# Install browsers for the first run
+npx playwright install
+
+# When testing on CI, must build the project first
+npm run build
+
+# Runs the end-to-end tests
+npm run test:e2e
+# Runs the tests only on Chromium
+npm run test:e2e -- --project=chromium
+# Runs the tests of a specific file
+npm run test:e2e -- tests/example.spec.ts
+# Runs the tests in debug mode
+npm run test:e2e -- --debug
 ```
 
-### Analyse statique du code avec [ESLint](https://eslint.org/)
+### Lint with [ESLint](https://eslint.org/)
 
 ```sh
 npm run lint

@@ -2,7 +2,8 @@ import { expect, test } from '@playwright/test'
 
 // See here how to get started:
 // https://playwright.dev/docs/intro
-test('visits the app root url', async ({ page }) => {
+test('affiche Accueil sur la route racine', async ({ page }) => {
   await page.goto('/')
-  await expect(page.locator('.fr-header .router-link-exact-active').first()).toHaveText('Service')
+
+  await expect(page.getByRole('heading', { name: 'Accueil' })).toBeVisible()
 })

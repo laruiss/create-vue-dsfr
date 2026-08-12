@@ -1,0 +1,31 @@
+{
+  "recommendations": [
+    // Cross-editor config
+    "editorconfig.editorconfig",
+
+    // Git
+    "mhutchie.git-graph",
+    "eamodio.gitlens",
+
+    // Node / npm
+    "christian-kohler.npm-intellisense",
+
+    // JavaScript
+    "dbaeumer.vscode-eslint",
+
+    // Vitejs
+    "antfu.vite",
+    "antfu.browse-lite",
+    
+    // Vue.js
+    "Vue.volar",
+    "Vue.vscode-typescript-vue-plugin",
+
+    // VueDsfr
+    "stormier.vue-dsfr-snippets",
+
+    // CSS
+    "csstools.postcss",
+    "stylelint.vscode-stylelint",
+  ]
+}
