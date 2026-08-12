@@ -1,17 +1,12 @@
 #!/usr/bin/env node
 
 // @ts-check
-const path = require('path')
-const { mkdir, stat } = require('node:fs/promises')
-const fs = require('node:fs')
-
-const rimraf = require('rimraf')
-// Avoids autoconversion to number of the project name by defining that the args
-// non associated with an option ( _ ) needs to be parsed as a string. See #4606
-const argv = require('minimist')(process.argv.slice(2), { string: ['_'] })
-// eslint-disable-next-line node/no-restricted-require
-const prompts = require('prompts')
-const {
+import path from 'path'
+import fs from 'node:fs'
+import { fileURLToPath } from 'node:url'
+import minimist from 'minimist'
+import * as clack from '@clack/prompts'
+import {
   yellow,
   green,
   blue,
@@ -20,9 +15,14 @@ const {
   gray,
   lightBlue,
   magenta,
-} = require('kolorist')
+} from 'kolorist'
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const cwd = process.cwd()
+
+// Avoids autoconversion to number of the project name by defining that the args
+// non associated with an option ( _ ) needs to be parsed as a string. See #4606
+const argv = minimist(process.argv.slice(2), { string: ['_'] })
 
 const FRAMEWORKS = [
   {
@@ -31,28 +31,28 @@ const FRAMEWORKS = [
     variants: [
       {
         name: 'vue3-ts-simple',
-        display: ' Vue3, TS, ESlint, Autoimport, VueDsfr',
+        display: ' Vue3, TS, ESlint, VueDsfr, Autoimport',
         color: yellow
       },
       {
         name: 'vue3-ts-complet',
-        display:  'Vue3, TS, ESLint, Autoimport, Pinia, PWA, Vitest, Playwright, VueDsfr',
+        display:  'Vue3, TS, ESLint, VueDsfr, Autoimport, Pinia, Vitest, Playwright',
         color: magenta
       },
     ],
   },
   {
-    name: 'Nuxt 3',
+    name: 'Nuxt 4',
     color: green,
     variants: [
       {
-        name: 'nuxt3-ts-simple',
-        display: 'Nuxt3, TS, ESLint, VueDsfr',
+        name: 'nuxt4-ts-simple',
+        display: ' Nuxt4, TS',
         color: lightBlue
       },
       {
-        name: 'nuxt3-ts-complet',
-        display: 'Nuxt3, TS, ESLint, Vitest, Playwright, PWA, VueDsfr',
+        name: 'nuxt4-ts-complet',
+        display: 'Nuxt4, TS, ESLint, A11y',
         color: blue
       },
     ],
@@ -68,96 +68,106 @@ const renameFiles = {
 }
 
 async function init() {
+  clack.intro(blue('create-vue-dsfr'))
+
   let targetDir = argv._[0]
   let template = argv.template || argv.t
 
   const defaultProjectName = !targetDir ? 'vue-dsfr-project' : targetDir
 
-  let result = {}
-
-  try {
-    result = await prompts(
-      [
-        {
-          type: targetDir ? null : 'text',
-          name: 'projectName',
-          message: 'Nom du projet :',
-          initial: defaultProjectName,
-          onState: (state) =>
-            (targetDir = state.value.trim() || defaultProjectName)
-        },
-        {
-          type: () =>
-            !fs.existsSync(targetDir) || isEmpty(targetDir) ? null : 'confirm',
-          name: 'overwrite',
-          message: () =>
-            (targetDir === '.'
-              ? 'Répertoire courant'
-              : `Le répertoire cible "${targetDir}"`) +
-            ` n’est pas vide. Le supprimer et continuer ?`
-        },
-        {
-          type: (_, { overwrite } = {}) => {
-            if (overwrite === false) {
-              throw new Error(red('✖') + ' Opération annulée')
-            }
-            return null
-          },
-          name: 'overwriteChecker'
-        },
-        {
-          type: () => (isValidPackageName(targetDir) ? null : 'text'),
-          name: 'packageName',
-          message: 'Nom du package:',
-          initial: () => toValidPackageName(targetDir),
-          validate: (dir) =>
-            isValidPackageName(dir) || 'Nom de package invalide'
-        },
-        {
-          type: template && TEMPLATES.includes(template) ? null : 'select',
-          name: 'framework',
-          message:
-            typeof template === 'string' && !TEMPLATES.includes(template)
-              ? `"${template}" n’est pas un gabarit valide. Veuillez choisir parmi la liste ci-dessous : `
-              : 'Liste disponible :',
-          initial: 0,
-          choices: FRAMEWORKS.map((framework) => {
-            const frameworkColor = framework.color
-            return {
-              title: frameworkColor(framework.name),
-              value: framework
-            }
-          })
-        },
-        {
-          type: (framework) =>
-            framework && framework.variants ? 'select' : null,
-          name: 'variant',
-          message: 'Faites votre choix :',
-          // @ts-ignore
-          choices: (framework) =>
-            framework.variants.map((variant) => {
-              const variantColor = variant.color
-              return {
-                title: variantColor(variant.name) + gray(` ${variant.display}`),
-                value: variant.name
-              }
-            })
-        }
-      ],
-      {
-        onCancel: () => {
-          throw new Error(red('✖') + ' Opération annulée')
-        }
+  // Question 1: projectName
+  if (!targetDir) {
+    const projectName = await clack.text({
+      message: 'Nom du projet:',
+      initialValue: defaultProjectName,
+      validate: (value) => {
+        if (!value) return 'Veuillez entrer un nom de projet'
       }
-    )
-  } catch (cancelled) {
-    console.log(cancelled.message)
-    return
+    })
+
+    if (clack.isCancel(projectName)) {
+      clack.cancel(red('Opération annulée'))
+      return
+    }
+
+    targetDir = projectName.trim() || defaultProjectName
   }
 
-  // user choice associated with prompts
-  const { framework, overwrite, packageName, variant } = result
+  // Question 2: overwrite
+  let overwrite = false
+  if (fs.existsSync(targetDir) && !isEmpty(targetDir)) {
+    const overwriteAnswer = await clack.confirm({
+      message: (targetDir === '.'
+        ? 'Répertoire courant'
+        : `Le répertoire cible "${targetDir}"`) +
+      ` n'est pas vide. Le supprimer et continuer ?`
+    })
+
+    if (clack.isCancel(overwriteAnswer)) {
+      clack.cancel(red('Opération annulée'))
+      return
+    }
+
+    if (overwriteAnswer === false) {
+      clack.cancel(red('Opération annulée'))
+      return
+    }
+
+    overwrite = overwriteAnswer
+  }
+
+  // Question 3: packageName
+  let packageName
+  if (!isValidPackageName(targetDir)) {
+    packageName = await clack.text({
+      message: 'Nom du package:',
+      initialValue: toValidPackageName(targetDir),
+      validate: (dir) => {
+        if (!isValidPackageName(dir)) return 'Nom de package invalide'
+      }
+    })
+
+    if (clack.isCancel(packageName)) {
+      clack.cancel(red('Opération annulée'))
+      return
+    }
+  }
+
+  // Question 4: framework
+  let framework
+  if (!template || !TEMPLATES.includes(template)) {
+    framework = await clack.select({
+      message: typeof template === 'string' && !TEMPLATES.includes(template)
+        ? `"${template}" n'est pas un gabarit valide. Veuillez choisir parmi la liste ci-dessous : `
+        : 'Liste disponible :',
+      options: FRAMEWORKS.map((fw) => ({
+        value: fw,
+        label: fw.color(fw.name)
+      }))
+    })
+
+    if (clack.isCancel(framework)) {
+      clack.cancel(red('Opération annulée'))
+      return
+    }
+  }
+
+  // Question 5: variant
+  let variant
+  if (framework && framework.variants) {
+    variant = await clack.select({
+      message: 'Faites votre choix :',
+      options: framework.variants.map((v) => ({
+        value: v.name,
+        label: v.color(v.name) + gray(` ${v.display}`)
+      }))
+    })
+
+    if (clack.isCancel(variant)) {
+      clack.cancel(red('Opération annulée'))
+      return
+    }
+  }
 
   const root = path.join(cwd, targetDir)
 
@@ -168,7 +178,7 @@ async function init() {
   }
 
   // determine template
-  template = variant || framework || template
+  template = variant || (framework && framework.name) || template
 
   console.log(`\nScaffolding project in ${root}...`)
 
@@ -190,7 +200,7 @@ async function init() {
     write(file)
   }
 
-  const pkg = require(path.join(templateDir, `package.json`))
+  const pkg = JSON.parse(fs.readFileSync(path.join(templateDir, 'package.json'), 'utf-8'))
 
   pkg.name = packageName || targetDir
 
@@ -199,25 +209,23 @@ async function init() {
   const pkgInfo = pkgFromUserAgent(process.env.npm_config_user_agent)
   const pkgManager = pkgInfo ? pkgInfo.name : 'npm'
 
-  console.log(`\n${lightGreen('Le projet est prêt. Il ne reste qu’à lancer ces commandes :')}\n`)
+  let nextSteps = ''
   if (root !== cwd) {
-    console.log(`  cd ${path.relative(cwd, root)}`)
+    nextSteps += `  cd ${path.relative(cwd, root)}\n`
   }
   switch (pkgManager) {
     case 'pnpm':
-      console.log('  pnpm i')
-      console.log('  pnpm dev')
+      nextSteps += '  pnpm i\n  pnpm dev'
       break
     case 'yarn':
-      console.log('  yarn')
-      console.log('  yarn dev')
+      nextSteps += '  yarn\n  yarn dev'
       break
     default:
-      console.log(`  ${pkgManager} install`)
-      console.log(`  ${pkgManager} run dev`)
+      nextSteps += `  ${pkgManager} install\n  ${pkgManager} run dev`
       break
   }
-  console.log()
+
+  clack.outro(lightGreen('Le projet est prêt !') + '\n\n' + gray('Prochaines étapes :') + '\n' + nextSteps)
 }
 
 function copy(src, dest) {
@@ -263,7 +271,6 @@ function emptyDir(dir) {
   }
   for (const file of fs.readdirSync(dir)) {
     const abs = path.resolve(dir, file)
-    // baseline is Node 12 so can't use rmSync :(
     if (fs.lstatSync(abs).isDirectory()) {
       emptyDir(abs)
       fs.rmdirSync(abs)

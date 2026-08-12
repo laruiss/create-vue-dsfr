@@ -1,24 +1,23 @@
 # create-vue-dsfr
 
-## Échaffauder un projet avec VueDsfr et Vite ou Nuxt3
+## Échafauder un projet avec VueDsfr et Vite ou Nuxt4
 
-Avec NPM:
+Avec **NPM** :
 
 ```bash
-$ npm init vue-dsfr
+npm init vue-dsfr
 ```
 
-Avec Yarn:
+Avec **PNPM** :
 
 ```bash
-$ yarn create vue-dsfr
+pnpm create vue-dsfr
 ```
 
-Avec PNPM:
+Avec **Yarn** :
 
 ```bash
-$ pnpm create vue-dsfr
+yarn create vue-dsfr
 ```
 
 Et suivez les indications de l’invite de commande !
-
