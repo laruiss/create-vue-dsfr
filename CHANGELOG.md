@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.12.0](https://github.com/laruiss/create-vue-dsfr/compare/v1.11.0...v1.12.0) (2026-08-12)
+
+
+### Features
+
+* **templates:** ✨ modernise les templates pour Nuxt 4 et Vue 3 ([9d53767](https://github.com/laruiss/create-vue-dsfr/commit/9d537670da471e7f0e80cc78e3aa8d051caff6d8))
+* **templates:** ✨ modernise les templates pour Nuxt 4 et Vue 3 ([258779d](https://github.com/laruiss/create-vue-dsfr/commit/258779d996ff5ff8f9299bb47634b4a61858caab))
+
+
+### Bug Fixes
+
+* 🐛 corrige les retours de review ([#39](https://github.com/laruiss/create-vue-dsfr/issues/39)) ([99f4179](https://github.com/laruiss/create-vue-dsfr/commit/99f4179f3dbc505bfc2584046f70b7120a14ef76))
+
 ## [1.11.0](https://github.com/laruiss/create-vue-dsfr/compare/v1.10.0...v1.11.0) (2024-09-05)
 
 
